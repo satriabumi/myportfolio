@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Front-End Developer</title>
+    <link rel="stylesheet" href="style/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2>Portfolio</h2>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="#home" class="nav-link">Beranda</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#about" class="nav-link">Tentang</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#skills" class="nav-link">Keahlian</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#projects" class="nav-link">Project</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#contact" class="nav-link">Kontak</a>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- hero section -->
+    <section id="home" class="hero">
+        <!-- windows 11 style grid -->
+        <div class="cyber-grid"></div>
+        
+        <!-- animated svg paths -->
+        <div class="svg-path">
+            <svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0,200 Q300,100 600,200 T1200,200" />
+                <path d="M0,400 Q300,300 600,400 T1200,400" />
+                <path d="M0,600 Q300,500 600,600 T1200,600" />
+            </svg>
+        </div>
+        
+        <!-- floating elements -->
+        <div class="floating-shapes">
+            <div class="shape"></div>
+            <div class="shape"></div>
+            <div class="shape"></div>
+            <div class="shape"></div>
+        </div>
+        
+        <!-- animated lines -->
+        <div class="path-line"></div>
+        <div class="path-line"></div>
+        <div class="path-line"></div>
+        
+        <!-- subtle glow overlay -->
+        <div class="glitch-overlay"></div>
+        
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    
+                    <h1 class="hero-title">
+                        Halo, saya adalah <span class="highlight">Satria Bumi</span>
+                    </h1>
+                    <p class="hero-subtitle">Lulusan Teknik Elektro | UI/UX Designer | Data Analyst</p>
+                    <p class="hero-description">
+                        Memiliki ketertarikan dalam 
+                        <span class="highlight-text">UI/UX Design</span>, 
+                        <span class="highlight-text">Front-End Website & Android Development</span>, 
+                        dan <span class="highlight-text">Data Analysis</span>.
+                    </p>
+                    <div class="hero-features">
+                        <div class="feature-item">
+                            <i class="fas fa-code"></i>
+                            <span>Front-End Web & Android Development</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-palette"></i>
+                            <span>UI/UX Design</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-chart-line"></i>
+                            <span>Data Analysis</span>
+                        </div>
+                    </div>
+                    <div class="hero-buttons">
+                        <a href="#projects" class="btn btn-primary">
+                            <i class="fas fa-rocket"></i>
+                            Lihat Project
+                        </a>
+                        <a href="#contact" class="btn btn-secondary">
+                            <i class="fas fa-envelope"></i>
+                            Hubungi Saya
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- about section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">Tentang Saya</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <div class="about-intro">
+                        <div class="about-avatar">
+                            <div class="avatar-container">
+                                <img src="assets/profile_photo.png" alt="Satria Bumi" class="avatar-image">
+                                <div class="avatar-glow"></div>
+                                <div class="avatar-particles">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="about-description">
+                            <h3 class="about-name">Satria Bumi</h3>
+                            <p class="about-subtitle">Lulusan Teknik Elektro | Front-End Developer</p>
+                            <p class="about-bio">
+                                Saya adalah seorang lulusan Teknik Elektro yang memiliki ketertarikan dalam 
+                                <span class="highlight-text">UI/UX Design</span>, 
+                                <span class="highlight-text">Front-End Website & Android Development</span>, 
+                                dan <span class="highlight-text">Data Analysis</span>.
+                            </p>
+                            <p class="about-passion">
+                                Dengan latar belakang teknik yang kuat, saya menggabungkan logika pemrograman 
+                                dengan kreativitas desain untuk menciptakan solusi digital yang inovatif dan user-friendly.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="about-stats">
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-graduation-cap"></i>
+                            </div>
+                            <div class="stat-content">
+                                <h3 class="stat-number">3.88</h3>
+                                <p class="stat-label">IPK Cum Laude</p>
+                                <p class="stat-detail">Sarjana Teknik Universitas Udayana</p>
+                            </div>
+                            <div class="stat-glow"></div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-code"></i>
+                            </div>
+                            <div class="stat-content">
+                                <h3 class="stat-number">4</h3>
+                                <p class="stat-label">Project Selesai</p>
+                                <p class="stat-detail">Website, Mobile App & UI/UX Design</p>
+                            </div>
+                            <div class="stat-glow"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Background elements -->
+        <div class="about-bg-elements">
+            <div class="floating-circle"></div>
+            <div class="floating-circle"></div>
+            <div class="floating-circle"></div>
+            <div class="tech-grid"></div>
+        </div>
+    </section>
+
+    <!-- skills section -->
+    <section id="skills" class="skills">
+        <div class="container">
+            <h2 class="section-title">Keahlian Teknis</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <img src="assets/html.png" alt="HTML" class="skill-icon">
+                    <h3>HTML5</h3>
+                    <p>Semantic markup dan struktur yang bersih</p>
+                </div>
+                <div class="skill-card">
+                    <img src="assets/css.png" alt="CSS" class="skill-icon">
+                    <h3>CSS3</h3>
+                    <p>Styling modern dengan Flexbox dan Grid</p>
+                </div>
+                <div class="skill-card">
+                    <img src="assets/javascript.png" alt="JavaScript" class="skill-icon">
+                    <h3>JavaScript</h3>
+                    <p>ES6+, DOM manipulation, dan async programming</p>
+                </div>
+                <div class="skill-card">
+                    <img src="assets/front-end.png" alt="Frontend" class="skill-icon">
+                    <h3>Frontend</h3>
+                    <p>React, Vue.js, dan modern frameworks</p>
+                </div>
+                <div class="skill-card">
+                    <img src="assets/sql.png" alt="SQL" class="skill-icon">
+                    <h3>SQL</h3>
+                    <p>Database design dan query optimization</p>
+                </div>
+                <div class="skill-card">
+                    <img src="assets/c++.png" alt="C++" class="skill-icon">
+                    <h3>C++</h3>
+                    <p>Programming fundamentals dan algorithms</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- projects section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2 class="section-title">Project Terbaru</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="assets/coming_soon.png" alt="Project 1">
+                    </div>
+                    <div class="project-content">
+                        <h3>E-Commerce Website</h3>
+                        <p>Website toko online modern dengan fitur keranjang belanja dan pembayaran</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">HTML</span>
+                            <span class="tech-tag">CSS</span>
+                            <span class="tech-tag">JavaScript</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link"><i class="fab fa-github"></i> Code</a>
+                            <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i> Live</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="assets/coming_soon.png" alt="Project 2">
+                    </div>
+                    <div class="project-content">
+                        <h3>Dashboard Admin</h3>
+                        <p>Panel admin responsif dengan grafik dan analitik data real-time</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">React</span>
+                            <span class="tech-tag">Node.js</span>
+                            <span class="tech-tag">MongoDB</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link"><i class="fab fa-github"></i> Code</a>
+                            <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i> Live</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="assets/coming_soon.png" alt="Project 3">
+                    </div>
+                    <div class="project-content">
+                        <h3>Portfolio Website</h3>
+                        <p>Website portfolio personal dengan animasi dan interaksi yang menarik</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">HTML</span>
+                            <span class="tech-tag">CSS</span>
+                            <span class="tech-tag">JavaScript</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link"><i class="fab fa-github"></i> Code</a>
+                            <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i> Live</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- contact section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Hubungi Saya</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Mari Berkolaborasi!</h3>
+                    <p>
+                        Saya selalu terbuka untuk project baru dan kesempatan kolaborasi. 
+                        Jika Anda memiliki ide project yang menarik, jangan ragu untuk menghubungi saya.
+                    </p>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>satriabumi25@gmail.com</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <span>+6282144040410</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Bali, Indonesia</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="social-links">
+                    <a href="#" class="social-link">
+                        <img src="assets/github.svg" alt="GitHub">
+                    </a>
+                    <a href="#" class="social-link">
+                        <img src="assets/linkedin.svg" alt="LinkedIn">
+                    </a>
+                    <a href="#" class="social-link">
+                        <img src="assets/instagram.svg" alt="Instagram">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Satria Bumi. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script/script.js"></script>
+</body>
+</html>
