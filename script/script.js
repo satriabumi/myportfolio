@@ -355,14 +355,29 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-// Skill categories interaction
+// Skill categories interaction - Only one card open at a time
 document.addEventListener('DOMContentLoaded', () => {
     const skillCategories = document.querySelectorAll('.skill-category');
+    let currentlyOpenCard = null;
     
     skillCategories.forEach(category => {
         // Hover effect
         category.addEventListener('mouseenter', () => {
+            // Close previously open card
+            if (currentlyOpenCard && currentlyOpenCard !== category) {
+                currentlyOpenCard.classList.remove('active');
+                const prevTechIcons = currentlyOpenCard.querySelectorAll('.tech-icon');
+                prevTechIcons.forEach(icon => {
+                    icon.style.animation = 'none';
+                    setTimeout(() => {
+                        icon.style.animation = '';
+                    }, 10);
+                });
+            }
+            
+            // Open current card
             category.classList.add('active');
+            currentlyOpenCard = category;
             
             // Add staggered animation to tech icons
             const techIcons = category.querySelectorAll('.tech-icon');
@@ -374,6 +389,9 @@ document.addEventListener('DOMContentLoaded', () => {
         
         category.addEventListener('mouseleave', () => {
             category.classList.remove('active');
+            if (currentlyOpenCard === category) {
+                currentlyOpenCard = null;
+            }
             
             // Reset tech icons
             const techIcons = category.querySelectorAll('.tech-icon');
@@ -473,4 +491,141 @@ style.textContent = `
         transform: scale(1);
     }
 `;
-document.head.appendChild(style); 
+document.head.appendChild(style);
+
+// Contact Form Functionality
+document.addEventListener('DOMContentLoaded', () => {
+    const contactForm = document.getElementById('contactForm');
+    
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(this);
+            const name = formData.get('name');
+            const email = formData.get('email');
+            const subject = formData.get('subject');
+            const message = formData.get('message');
+            
+            // Validate form
+            if (!name || !email || !subject || !message) {
+                showNotification('Mohon lengkapi semua field', 'error');
+                return;
+            }
+            
+            if (!validateEmail(email)) {
+                showNotification('Format email tidak valid', 'error');
+                return;
+            }
+            
+            // Create mailto link
+            const mailtoLink = `mailto:satriabumi25@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`Nama: ${name}\nEmail: ${email}\n\nPesan:\n${message}`)}`;
+            
+            // Open email client
+            window.location.href = mailtoLink;
+            
+            // Show success message
+            showNotification('Form berhasil dikirim! Email client akan terbuka.', 'success');
+            
+            // Reset form
+            this.reset();
+        });
+    }
+});
+
+// Notification function
+function showNotification(message, type = 'info') {
+    // Remove existing notifications
+    const existingNotifications = document.querySelectorAll('.notification');
+    existingNotifications.forEach(notification => notification.remove());
+    
+    // Create notification element
+    const notification = document.createElement('div');
+    notification.className = `notification notification-${type}`;
+    notification.innerHTML = `
+        <div class="notification-content">
+            <i class="fas ${type === 'success' ? 'fa-check-circle' : type === 'error' ? 'fa-exclamation-circle' : 'fa-info-circle'}"></i>
+            <span>${message}</span>
+        </div>
+    `;
+    
+    // Add notification styles
+    const notificationStyle = document.createElement('style');
+    notificationStyle.textContent = `
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 10000;
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            transform: translateX(100%);
+            transition: transform 0.3s ease;
+            max-width: 400px;
+        }
+        
+        .notification.visible {
+            transform: translateX(0);
+        }
+        
+        .notification-success {
+            background: #10b981;
+            color: white;
+            border-left: 4px solid #059669;
+        }
+        
+        .notification-error {
+            background: #ef4444;
+            color: white;
+            border-left: 4px solid #dc2626;
+        }
+        
+        .notification-info {
+            background: #3b82f6;
+            color: white;
+            border-left: 4px solid #2563eb;
+        }
+        
+        .notification-content {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        
+        .notification-content i {
+            font-size: 1.2rem;
+        }
+        
+        @media (max-width: 768px) {
+            .notification {
+                top: 10px;
+                right: 10px;
+                left: 10px;
+                max-width: none;
+            }
+        }
+    `;
+    
+    if (!document.querySelector('#notification-styles')) {
+        notificationStyle.id = 'notification-styles';
+        document.head.appendChild(notificationStyle);
+    }
+    
+    // Add to page
+    document.body.appendChild(notification);
+    
+    // Show notification
+    setTimeout(() => {
+        notification.classList.add('visible');
+    }, 100);
+    
+    // Auto remove after 5 seconds
+    setTimeout(() => {
+        notification.classList.remove('visible');
+        setTimeout(() => {
+            notification.remove();
+        }, 300);
+    }, 5000);
+} 
