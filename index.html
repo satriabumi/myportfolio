@@ -17,19 +17,19 @@
             </div>
             <ul class="nav-menu">
                 <li class="nav-item">
-                    <a href="#home" class="nav-link">Beranda</a>
+                    <a href="#home" class="nav-link">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a href="#about" class="nav-link">Tentang</a>
+                    <a href="#about" class="nav-link">About</a>
                 </li>
                 <li class="nav-item">
-                    <a href="#skills" class="nav-link">Keahlian</a>
+                    <a href="#skills" class="nav-link">Skills</a>
                 </li>
                 <li class="nav-item">
                     <a href="#projects" class="nav-link">Project</a>
                 </li>
                 <li class="nav-item">
-                    <a href="#contact" class="nav-link">Kontak</a>
+                    <a href="#contact" class="nav-link">Contact</a>
                 </li>
             </ul>
             <div class="hamburger">
@@ -72,62 +72,68 @@
         
         <div class="hero-container">
             <div class="hero-content">
-                <div class="hero-text">
-                    
-                    <div class="hero-quote">
-                        <i class="fas fa-quote-left quote-icon"></i>
-                        <h1 class="hero-title">
-                            "Lebih baik punya uang daripada tidak punya uang, kelazzz king"
-                        </h1>
-                        <p class="quote-author">- Dukgeng -</p>
+                <div class="hero-left">
+                    <div class="hero-text">
+                        <div class="hero-quote">
+                            <i class="fas fa-quote-left quote-icon"></i>
+                            <h1 class="hero-title">
+                                "Tetap menyerah jangan semangat, semoga lelahmu menjadi-jadi"
+                            </h1>
+                        </div>
+                        <p class="hero-description">
+                            Memiliki ketertarikan dalam 
+                            <span class="highlight-text">UI/UX Design</span>, 
+                            <span class="highlight-text">Front-End Website & Android Development</span>, 
+                            dan <span class="highlight-text">Data Analysis</span>.
+                        </p>
+                        <div class="hero-buttons">
+                            <a href="#projects" class="btn btn-primary">
+                                <i class="fas fa-rocket"></i>
+                                Lihat Project
+                            </a>
+                            <a href="#contact" class="btn btn-secondary">
+                                <i class="fas fa-envelope"></i>
+                                Hubungi Saya
+                            </a>
+                        </div>
                     </div>
-                    <p class="hero-description">
-                        Memiliki ketertarikan dalam 
-                        <span class="highlight-text">UI/UX Design</span>, 
-                        <span class="highlight-text">Front-End Website & Android Development</span>, 
-                        dan <span class="highlight-text">Data Analysis</span>.
-                    </p>
-                    <div class="spotify-widget">
-                        <div class="spotify-card">
-                            <div class="spotify-header">
-                                <i class="fab fa-spotify spotify-icon"></i>
-                                <span class="spotify-status">Now Playing</span>
+                </div>
+                <div class="hero-right">
+                    <div class="github-widget">
+                        <div class="github-card">
+                            <div class="github-header">
+                                <i class="fab fa-github github-icon"></i>
+                                <span class="github-status">GitHub Statistics</span>
                             </div>
-                            <div class="spotify-content">
-                                <div class="album-art">
-                                    <i class="fas fa-music music-icon"></i>
+                            <div class="github-content">
+                                <div class="github-avatar">
+                                    <img src="https://github.com/satriabumi.png" alt="GitHub Avatar" class="avatar-img">
                                 </div>
-                                <div class="track-info">
-                                    <h3 class="track-title">Stop Crying Your Heart Out</h3>
-                                    <p class="track-artist">Oasis</p>
+                                <div class="github-info">
+                                    <h3 class="github-username">satriabumi</h3>
+                                    <p class="github-bio">Frontend Developer UI/UX Designer, Data Analyst</p>
                                 </div>
-                                <div class="spotify-controls">
-                                    <i class="fas fa-play play-icon"></i>
+                                <div class="github-controls">
+                                    <i class="fas fa-external-link-alt"></i>
                                 </div>
                             </div>
-                            <div class="spotify-progress">
-                                <div class="progress-bar">
-                                    <div class="progress-fill"></div>
+                            <div class="github-stats">
+                                <div class="stat-item">
+                                    <span class="stat-number" id="repo-count">0</span>
+                                    <span class="stat-label">Repositories</span>
                                 </div>
-                                <div class="time-info">
-                                    <span class="current-time">2:34</span>
-                                    <span class="total-time">5:03</span>
+                                <div class="stat-item">
+                                    <span class="stat-number" id="followers">0</span>
+                                    <span class="stat-label">Followers</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-number" id="stars">0</span>
+                                    <span class="stat-label">Stars</span>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="hero-buttons">
-                        <a href="#projects" class="btn btn-primary">
-                            <i class="fas fa-rocket"></i>
-                            Lihat Project
-                        </a>
-                        <a href="#contact" class="btn btn-secondary">
-                            <i class="fas fa-envelope"></i>
-                            Hubungi Saya
-                        </a>
-                    </div>
                 </div>
-
             </div>
         </div>
     </section>
@@ -135,7 +141,7 @@
     <!-- about section -->
     <section id="about" class="about">
         <div class="container">
-            <h2 class="section-title">Tentang Saya</h2>
+            <h2 class="section-title">About Me</h2>
             <div class="about-content">
                 <div class="about-text">
                     <div class="about-intro">
@@ -169,12 +175,13 @@
                     <div class="about-stats">
                         <div class="stat-card">
                             <div class="stat-icon">
-                                <i class="fas fa-graduation-cap"></i>
+                                <i class="fas fa-file-download"></i>
                             </div>
                             <div class="stat-content">
-                                <h3 class="stat-number">3.88</h3>
-                                <p class="stat-label">IPK Cum Laude</p>
-                                <p class="stat-detail">Sarjana Teknik Universitas Udayana</p>
+                                <h3 class="stat-number">Download Resume</h3>
+                                <a href="assets/resume.pdf" class="btn btn-primary" download style="margin-top: 1rem; display: inline-block;">
+                                    <i class="fas fa-download"></i> Download PDF
+                                </a>
                             </div>
                             <div class="stat-glow"></div>
                         </div>
@@ -183,7 +190,7 @@
                                 <i class="fas fa-code"></i>
                             </div>
                             <div class="stat-content">
-                                <h3 class="stat-number">4</h3>
+                                <h3 class="stat-number">3+</h3>
                                 <p class="stat-label">Project Selesai</p>
                                 <p class="stat-detail">Website, Mobile App & UI/UX Design</p>
                             </div>
@@ -205,102 +212,371 @@
     <!-- skills section -->
     <section id="skills" class="skills">
         <div class="container">
-            <h2 class="section-title">Keahlian Teknis</h2>
-            <div class="skills-grid">
-                <div class="skill-card">
-                    <img src="assets/html.png" alt="HTML" class="skill-icon">
-                    <h3>HTML5</h3>
-                    <p>Semantic markup dan struktur yang bersih</p>
+            <h2 class="section-title">My Skills</h2>
+            <div class="skills-content">
+                <div class="skills-intro">
+                    <h3 class="skills-subtitle">Teknologi & Tools</h3>
+                    <p class="skills-description">
+                        Menguasai berbagai teknologi modern untuk pengembangan web, mobile, dan desain UI/UX. 
+                        Fokus pada solusi yang scalable dan user-friendly.
+                    </p>
                 </div>
-                <div class="skill-card">
-                    <img src="assets/css.png" alt="CSS" class="skill-icon">
-                    <h3>CSS3</h3>
-                    <p>Styling modern dengan Flexbox dan Grid</p>
-                </div>
-                <div class="skill-card">
-                    <img src="assets/javascript.png" alt="JavaScript" class="skill-icon">
-                    <h3>JavaScript</h3>
-                    <p>ES6+, DOM manipulation, dan async programming</p>
-                </div>
-                <div class="skill-card">
-                    <img src="assets/front-end.png" alt="Frontend" class="skill-icon">
-                    <h3>Frontend</h3>
-                    <p>React, Vue.js, dan modern frameworks</p>
-                </div>
-                <div class="skill-card">
-                    <img src="assets/sql.png" alt="SQL" class="skill-icon">
-                    <h3>SQL</h3>
-                    <p>Database design dan query optimization</p>
-                </div>
-                <div class="skill-card">
-                    <img src="assets/c++.png" alt="C++" class="skill-icon">
-                    <h3>C++</h3>
-                    <p>Programming fundamentals dan algorithms</p>
+                <div class="skills-grid">
+                    <!-- Programming Languages -->
+                    <div class="skill-category" data-category="programming">
+                        <div class="category-header">
+                            <div class="category-icon">
+                                <i class="fas fa-code"></i>
+                            </div>
+                            <h3 class="category-title">Programming Languages</h3>
+                        </div>
+                        <div class="category-content">
+                            <div class="tech-icons">
+                                <div class="tech-icon" data-tech="html">
+                                    <img src="assets/html.png" alt="HTML">
+                                    <span class="tech-name">HTML</span>
+                                </div>
+                                <div class="tech-icon" data-tech="css">
+                                    <img src="assets/css.png" alt="CSS">
+                                    <span class="tech-name">CSS</span>
+                                </div>
+                                <div class="tech-icon" data-tech="javascript">
+                                    <img src="assets/javascript.png" alt="JavaScript">
+                                    <span class="tech-name">JavaScript</span>
+                                </div>
+                                <div class="tech-icon" data-tech="kotlin">
+                                    <img src="assets/kotlin.png" alt="Kotlin">
+                                    <span class="tech-name">Kotlin</span>
+                                </div>
+                                <div class="tech-icon" data-tech="python">
+                                    <img src="assets/python.png" alt="Python">
+                                    <span class="tech-name">Python</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Tools -->
+                    <div class="skill-category" data-category="tools">
+                        <div class="category-header">
+                            <div class="category-icon">
+                                <i class="fas fa-tools"></i>
+                            </div>
+                            <h3 class="category-title">Design & Development Tools</h3>
+                        </div>
+                        <div class="category-content">
+                            <div class="tech-icons">
+                                <div class="tech-icon" data-tech="figma">
+                                    <img src="assets/figma.png" alt="Figma">
+                                    <span class="tech-name">Figma</span>
+                                </div>
+                                <div class="tech-icon" data-tech="canva">
+                                    <img src="assets/canva.png" alt="Canva">
+                                    <span class="tech-name">Canva</span>
+                                </div>
+                                <div class="tech-icon" data-tech="premiere">
+                                    <img src="assets/premiere-pro.png" alt="Premiere Pro">
+                                    <span class="tech-name">Premiere Pro</span>
+                                </div>
+                                <div class="tech-icon" data-tech="colab">
+                                    <img src="assets/colab.png" alt="Google Colab">
+                                    <span class="tech-name">Google Colab</span>
+                                </div>
+                                <div class="tech-icon" data-tech="spreadsheet">
+                                    <img src="assets/spreadsheet.png" alt="Spreadsheet">
+                                    <span class="tech-name">Spreadsheet</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Platforms -->
+                    <div class="skill-category" data-category="platforms">
+                        <div class="category-header">
+                            <div class="category-icon">
+                                <i class="fas fa-desktop"></i>
+                            </div>
+                            <h3 class="category-title">Development Platforms</h3>
+                        </div>
+                        <div class="category-content">
+                            <div class="tech-icons">
+                                <div class="tech-icon" data-tech="android-studio">
+                                    <img src="assets/android_studio.png" alt="Android Studio">
+                                    <span class="tech-name">Android Studio</span>
+                                </div>
+                                <div class="tech-icon" data-tech="vscode">
+                                    <img src="assets/vscode.png" alt="VS Code">
+                                    <span class="tech-name">VS Code</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Soft Skills -->
+                    <div class="skill-category" data-category="soft-skills">
+                        <div class="category-header">
+                            <div class="category-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <h3 class="category-title">Soft Skills</h3>
+                        </div>
+                        <div class="category-content">
+                            <div class="tech-icons">
+                                <div class="tech-icon" data-tech="communication">
+                                    <i class="fas fa-comments"></i>
+                                    <span class="tech-name">Communication</span>
+                                </div>
+                                <div class="tech-icon" data-tech="teamwork">
+                                    <i class="fas fa-handshake"></i>
+                                    <span class="tech-name">Teamwork</span>
+                                </div>
+                                <div class="tech-icon" data-tech="problem-solving">
+                                    <i class="fas fa-lightbulb"></i>
+                                    <span class="tech-name">Problem Solving</span>
+                                </div>
+                                <div class="tech-icon" data-tech="attention">
+                                    <i class="fas fa-search"></i>
+                                    <span class="tech-name">Attention to Detail</span>
+                                </div>
+                                <div class="tech-icon" data-tech="creativity">
+                                    <i class="fas fa-palette"></i>
+                                    <span class="tech-name">Creativity</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
+        </div>
+        <!-- Background elements -->
+        <div class="skills-bg-elements">
+            <div class="floating-circle"></div>
+            <div class="floating-circle"></div>
+            <div class="floating-circle"></div>
+            <div class="tech-grid"></div>
         </div>
     </section>
 
     <!-- projects section -->
     <section id="projects" class="projects">
         <div class="container">
-            <h2 class="section-title">Project Terbaru</h2>
-            <div class="projects-grid">
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="assets/coming_soon.png" alt="Project 1">
-                    </div>
-                    <div class="project-content">
-                        <h3>E-Commerce Website</h3>
-                        <p>Website toko online modern dengan fitur keranjang belanja dan pembayaran</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">HTML</span>
-                            <span class="tech-tag">CSS</span>
-                            <span class="tech-tag">JavaScript</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="#" class="project-link"><i class="fab fa-github"></i> Code</a>
-                            <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i> Live</a>
-                        </div>
-                    </div>
+            <h2 class="section-title">My Projects</h2>
+            <div class="projects-content">
+                <div class="projects-intro">
+                    <h3 class="projects-subtitle">Portfolio Kreatif</h3>
+                    <p class="projects-description">
+                        Koleksi project terbaik yang menggabungkan teknologi modern dengan desain yang inovatif. 
+                        Setiap project mencerminkan dedikasi dalam menciptakan solusi digital yang user-friendly dan impactful.
+                    </p>
                 </div>
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="assets/coming_soon.png" alt="Project 2">
-                    </div>
-                    <div class="project-content">
-                        <h3>Dashboard Admin</h3>
-                        <p>Panel admin responsif dengan grafik dan analitik data real-time</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">React</span>
-                            <span class="tech-tag">Node.js</span>
-                            <span class="tech-tag">MongoDB</span>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <div class="project-header">
+                            <div class="project-badge">
+                                <i class="fas fa-mobile-alt"></i>
+                                <span>Android App</span>
+                            </div>
+                            <div class="project-status">
+                                <span class="status-dot"></span>
+                                <span>Completed</span>
+                            </div>
                         </div>
-                        <div class="project-links">
-                            <a href="#" class="project-link"><i class="fab fa-github"></i> Code</a>
-                            <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i> Live</a>
+                        <div class="project-image">
+                            <img src="assets/android_studio.png" alt="PAKU App">
+                            <div class="project-overlay">
+                                <div class="project-preview">
+                                    <i class="fas fa-play"></i>
+                                    <span>Preview</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <div class="project-title">
+                                <h3>PAKU – Presensi Akurat Klinik Pratama Asih Usadha</h3>
+                                <div class="project-rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                            </div>
+                            <p class="project-description">
+                                Aplikasi Android berbasis BSSID Wi-Fi dan Geolocation untuk presensi staf klinik kesehatan. 
+                                Menggunakan teknologi modern untuk memastikan akurasi dan keamanan data presensi.
+                            </p>
+                            <div class="project-features">
+                                <div class="feature-item">
+                                    <i class="fas fa-wifi"></i>
+                                    <span>Wi-Fi BSSID</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <span>Geolocation</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-shield-alt"></i>
+                                    <span>Secure Data</span>
+                                </div>
+                            </div>
+                            <div class="project-tech">
+                                <span class="tech-tag">Kotlin</span>
+                                <span class="tech-tag">XML</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="#" class="project-link primary">
+                                    <i class="fab fa-github"></i>
+                                    <span>View Code</span>
+                                </a>
+                                <a href="#" class="project-link secondary">
+                                    <i class="fas fa-external-link-alt"></i>
+                                    <span>Prototype</span>
+                                </a>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="assets/coming_soon.png" alt="Project 3">
-                    </div>
-                    <div class="project-content">
-                        <h3>Portfolio Website</h3>
-                        <p>Website portfolio personal dengan animasi dan interaksi yang menarik</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">HTML</span>
-                            <span class="tech-tag">CSS</span>
-                            <span class="tech-tag">JavaScript</span>
+                    
+                    <div class="project-card">
+                        <div class="project-header">
+                            <div class="project-badge">
+                                <i class="fas fa-mobile-alt"></i>
+                                <span>Android App</span>
+                            </div>
+                            <div class="project-status">
+                                <span class="status-dot"></span>
+                                <span>Completed</span>
+                            </div>
                         </div>
-                        <div class="project-links">
-                            <a href="#" class="project-link"><i class="fab fa-github"></i> Code</a>
-                            <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i> Live</a>
+                        <div class="project-image">
+                            <img src="assets/android_studio.png" alt="SIPIMO App">
+                            <div class="project-overlay">
+                                <div class="project-preview">
+                                    <i class="fas fa-play"></i>
+                                    <span>Preview</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <div class="project-title">
+                                <h3>SIPIMO - Sistem Pengingat Minum Obat</h3>
+                                <div class="project-rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                            </div>
+                            <p class="project-description">
+                                Aplikasi Android yang membantu pengguna mengatur jadwal dan pengingat konsumsi obat.
+                            </p>
+                            <div class="project-features">
+                                <div class="feature-item">
+                                    <i class="fas fa-clock"></i>
+                                    <span>Schedule</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-bell"></i>
+                                    <span>Reminders</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas feature-item"></i>
+                                    <span>Medicine</span>
+                                </div>
+                            </div>
+                            <div class="project-tech">
+                                <span class="tech-tag">Kotlin</span>
+                                <span class="tech-tag">XML</span>
+
+                            </div>
+                            <div class="project-links">
+                                <a href="#" class="project-link primary">
+                                    <i class="fab fa-github"></i>
+                                    <span>View Code</span>
+                                </a>
+                                <a href="#" class="project-link secondary">
+                                    <i class="fas fa-external-link-alt"></i>
+                                    <span>Prototype</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="project-card">
+                        <div class="project-header">
+                            <div class="project-badge">
+                                <i class="fas fa-globe"></i>
+                                <span>Web App</span>
+                            </div>
+                            <div class="project-status">
+                                <span class="status-dot"></span>
+                                <span>Completed</span>
+                            </div>
+                        </div>
+                        <div class="project-image">
+                            <img src="assets/vscode.png" alt="Travlio Website">
+                            <div class="project-overlay">
+                                <div class="project-preview">
+                                    <i class="fas fa-play"></i>
+                                    <span>Preview</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <div class="project-title">
+                                <h3>Travlio - Website Travel</h3>
+                                <div class="project-rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                            </div>
+                            <p class="project-description">
+                                Website wisata yang menyajikan destinasi, maskapai penerbangan, dan booking tiket. 
+                                Sebagai Front-End Web Developer, saya membangun tampilan antarmuka menggunakan HTML, CSS, dan JavaScript, serta memastikan desain responsif dan pengalaman pengguna yang menarik di berbagai perangkat.
+                            </p>
+                            <div class="project-features">
+                                <div class="feature-item">
+                                    <i class="fas fa-plane"></i>
+                                    <span>Flight Booking</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-map"></i>
+                                    <span>Destinations</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-mobile-alt"></i>
+                                    <span>Airline</span>
+                                </div>
+                            </div>
+                            <div class="project-tech">
+                                <span class="tech-tag">HTML</span>
+                                <span class="tech-tag">CSS</span>
+                                <span class="tech-tag">JavaScript</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="#" class="project-link primary">
+                                    <i class="fab fa-github"></i>
+                                    <span>View Code</span>
+                                </a>
+                                <a href="#" class="project-link secondary">
+                                    <i class="fas fa-external-link-alt"></i>
+                                    <span>Live Demo</span>
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
+        <!-- Background elements -->
+        <div class="projects-bg-elements">
+            <div class="floating-circle"></div>
+            <div class="floating-circle"></div>
+            <div class="floating-circle"></div>
+            <div class="tech-grid"></div>
         </div>
     </section>
 

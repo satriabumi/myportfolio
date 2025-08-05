@@ -1,4 +1,4 @@
-// mobile navigation toggle
+// toggle navigasi mobile
 const hamburger = document.querySelector('.hamburger');
 const navMenu = document.querySelector('.nav-menu');
 
@@ -6,7 +6,7 @@ hamburger.addEventListener('click', () => {
     hamburger.classList.toggle('active');
     navMenu.classList.toggle('active');
     
-    // Add body scroll lock when menu is open
+    // add kunci scroll body saat menu terbuka
     if (navMenu.classList.contains('active')) {
         document.body.style.overflow = 'hidden';
     } else {
@@ -14,16 +14,14 @@ hamburger.addEventListener('click', () => {
     }
 });
 
-// close mobile menu when clicking on a link
+// close menu mobile saat mengklik link
 document.querySelectorAll('.nav-link').forEach(n => n.addEventListener('click', () => {
     hamburger.classList.remove('active');
     navMenu.classList.remove('active');
     document.body.style.overflow = 'auto';
 }));
 
-
-
-// smooth scrolling for navigation links
+// smooth scroll untuk link navigasi
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
@@ -37,7 +35,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Active navigation link based on scroll position
+// link navigasi aktif berdasarkan posisi scroll
 function updateActiveNavLink() {
     const sections = document.querySelectorAll('section[id]');
     const navLinks = document.querySelectorAll('.nav-link');
@@ -61,7 +59,7 @@ function updateActiveNavLink() {
 
 window.addEventListener('scroll', updateActiveNavLink);
 
-// navbar background change on scroll
+// perubahan latar belakang navbar saat scroll
 window.addEventListener('scroll', () => {
     const navbar = document.querySelector('.navbar');
     if (window.scrollY > 100) {
@@ -75,7 +73,7 @@ window.addEventListener('scroll', () => {
     }
 });
 
-// scroll animations
+// animasi scroll
 const observerOptions = {
     threshold: 0.1,
     rootMargin: '0px 0px -50px 0px'
@@ -89,7 +87,7 @@ const observer = new IntersectionObserver((entries) => {
     });
 }, observerOptions);
 
-// observe elements for animation
+// amati elemen untuk animasi
 document.addEventListener('DOMContentLoaded', () => {
     const animateElements = document.querySelectorAll('.skill-card, .project-card, .stat-card, .contact-item, .about-intro, .about-description');
     animateElements.forEach(el => {
@@ -98,7 +96,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-// typing animation for hero title
+// animasi mengetik untuk judul hero
 function typeWriter(element, text, speed = 100) {
     let i = 0;
     element.innerHTML = '';
@@ -113,7 +111,7 @@ function typeWriter(element, text, speed = 100) {
     type();
 }
 
-// initialize typing animation when page loads
+// inisialisasi animasi mengetik saat halaman dimuat
 window.addEventListener('load', () => {
     const heroTitle = document.querySelector('.hero-title');
     if (heroTitle) {
@@ -122,7 +120,7 @@ window.addEventListener('load', () => {
     }
 });
 
-// parallax effect for hero section
+// efek parallax untuk bagian hero
 window.addEventListener('scroll', () => {
     const scrolled = window.pageYOffset;
     const hero = document.querySelector('.hero');
@@ -133,7 +131,7 @@ window.addEventListener('scroll', () => {
         profilePhoto.style.transform = `translateY(${rate}px)`;
     }
     
-    // Parallax effect for about section background elements
+    // Efek parallax untuk elemen latar belakang bagian about
     const about = document.querySelector('.about');
     const floatingCircles = document.querySelectorAll('.floating-circle');
     
@@ -151,11 +149,11 @@ window.addEventListener('scroll', () => {
     }
 });
 
-// add loading animation
+// tambahkan animasi loading
 window.addEventListener('load', () => {
     document.body.classList.add('loaded');
     
-    // Add avatar animation delay
+    // Tambahkan delay animasi avatar
     const avatar = document.querySelector('.avatar-container');
     if (avatar) {
         avatar.style.opacity = '0';
@@ -167,7 +165,7 @@ window.addEventListener('load', () => {
         }, 500);
     }
     
-    // Add particles animation
+    // Tambahkan animasi partikel
     const particles = document.querySelectorAll('.avatar-particles span');
     particles.forEach((particle, index) => {
         particle.style.opacity = '0';
@@ -178,7 +176,7 @@ window.addEventListener('load', () => {
     });
 });
 
-// project card hover effects
+// efek hover kartu proyek
 document.querySelectorAll('.project-card').forEach(card => {
     card.addEventListener('mouseenter', function() {
         this.style.transform = 'translateY(-10px) scale(1.02)';
@@ -189,7 +187,7 @@ document.querySelectorAll('.project-card').forEach(card => {
     });
 });
 
-// skill card hover effects
+// efek hover kartu skill
 document.querySelectorAll('.skill-card').forEach(card => {
     card.addEventListener('mouseenter', function() {
         this.style.transform = 'translateY(-8px)';
@@ -202,7 +200,7 @@ document.querySelectorAll('.skill-card').forEach(card => {
     });
 });
 
-// stat card hover effects
+// efek hover kartu statistik
 document.querySelectorAll('.stat-card').forEach(card => {
     card.addEventListener('mouseenter', function() {
         this.style.transform = 'translateY(-10px) scale(1.02)';
@@ -215,13 +213,13 @@ document.querySelectorAll('.stat-card').forEach(card => {
     });
 });
 
-// contact form validation (if you add a form later)
+// validasi form kontak (jika Anda menambahkan form nanti)
 function validateEmail(email) {
     const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return re.test(email);
 }
 
-// Highlight text hover effects
+// Efek hover teks highlight
 document.querySelectorAll('.highlight-text').forEach(text => {
     text.addEventListener('mouseenter', function() {
         this.style.textShadow = '0 0 20px rgba(59, 130, 246, 0.8)';
@@ -234,7 +232,7 @@ document.querySelectorAll('.highlight-text').forEach(text => {
     });
 });
 
-// add smooth reveal animation for sections
+// tambahkan animasi reveal halus untuk bagian
 const revealSections = document.querySelectorAll('section');
 
 const revealSection = (entries, observer) => {
@@ -258,7 +256,7 @@ revealSections.forEach(section => {
     sectionObserver.observe(section);
 });
 
-// add counter animation for stats
+// tambahkan animasi counter untuk statistik
 function animateCounter(element, target, duration = 2000) {
     let start = 0;
     const increment = target / (duration / 16);
@@ -284,14 +282,18 @@ function animateCounter(element, target, duration = 2000) {
     updateCounter();
 }
 
-// trigger counter animation when stats section is visible
+// pemicu animasi counter saat bagian statistik terlihat
 const statsObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             const stats = entry.target.querySelectorAll('.stat-number');
             stats.forEach(stat => {
-                const target = parseFloat(stat.textContent.replace('+', ''));
-                animateCounter(stat, target);
+                
+                const text = stat.textContent.replace('+', '');
+                if (!isNaN(parseFloat(text))) {
+                    const target = parseFloat(text);
+                    animateCounter(stat, target);
+                }
             });
             statsObserver.unobserve(entry.target);
         }
@@ -303,7 +305,121 @@ if (aboutStats) {
     statsObserver.observe(aboutStats);
 }
 
-// add CSS for loaded state
+// tambahkan CSS untuk keadaan loaded
+// GitHub API integration
+async function loadGitHubStats() {
+    try {
+        const username = 'satriabumi';
+        const response = await fetch(`https://api.github.com/users/${username}`);
+        
+        if (!response.ok) {
+            throw new Error('GitHub API request failed');
+        }
+        
+        const userData = await response.json();
+        
+        // Update user stats
+        document.getElementById('repo-count').textContent = userData.public_repos || 0;
+        document.getElementById('followers').textContent = userData.followers || 0;
+        
+        // Load repositories to get total stars
+        const reposResponse = await fetch(`https://api.github.com/users/${username}/repos?sort=stars&per_page=100`);
+        if (reposResponse.ok) {
+            const repos = await reposResponse.json();
+            const totalStars = repos.reduce((sum, repo) => sum + (repo.stargazers_count || 0), 0);
+            document.getElementById('stars').textContent = totalStars;
+        }
+        
+
+        
+    } catch (error) {
+        console.error('Error loading GitHub stats:', error);
+        
+        // Fallback data if API fails
+        document.getElementById('repo-count').textContent = '15';
+        document.getElementById('followers').textContent = '25';
+        document.getElementById('stars').textContent = '45';
+    }
+}
+
+// Load GitHub stats when page loads
+document.addEventListener('DOMContentLoaded', () => {
+    loadGitHubStats();
+    
+    // Add click handler only for GitHub button
+    const githubButton = document.querySelector('.github-controls');
+    if (githubButton) {
+        githubButton.addEventListener('click', () => {
+            window.open('https://github.com/satriabumi', '_blank');
+        });
+    }
+});
+
+// Skill categories interaction
+document.addEventListener('DOMContentLoaded', () => {
+    const skillCategories = document.querySelectorAll('.skill-category');
+    
+    skillCategories.forEach(category => {
+        // Hover effect
+        category.addEventListener('mouseenter', () => {
+            category.classList.add('active');
+            
+            // Add staggered animation to tech icons
+            const techIcons = category.querySelectorAll('.tech-icon');
+            techIcons.forEach((icon, index) => {
+                icon.style.animationDelay = `${index * 0.1}s`;
+                icon.style.animation = 'techIconAppear 0.6s ease forwards';
+            });
+        });
+        
+        category.addEventListener('mouseleave', () => {
+            category.classList.remove('active');
+            
+            // Reset tech icons
+            const techIcons = category.querySelectorAll('.tech-icon');
+            techIcons.forEach(icon => {
+                icon.style.animation = 'none';
+                setTimeout(() => {
+                    icon.style.animation = '';
+                }, 10);
+            });
+        });
+        
+        // Click effect
+        category.addEventListener('click', () => {
+            // Add click animation
+            category.style.transform = 'scale(0.95)';
+            setTimeout(() => {
+                category.style.transform = '';
+            }, 150);
+            
+            // Add ripple effect
+            const ripple = document.createElement('div');
+            ripple.classList.add('ripple');
+            category.appendChild(ripple);
+            
+            setTimeout(() => {
+                ripple.remove();
+            }, 600);
+        });
+    });
+    
+    // Individual tech icon hover effects
+    const techIcons = document.querySelectorAll('.tech-icon');
+    techIcons.forEach(icon => {
+        icon.addEventListener('mouseenter', () => {
+            icon.style.transform = 'scale(1.1) translateY(-5px)';
+            icon.style.boxShadow = '0 10px 25px rgba(59, 130, 246, 0.4)';
+        });
+        
+        icon.addEventListener('mouseleave', () => {
+            icon.style.transform = '';
+            icon.style.boxShadow = '';
+        });
+    });
+});
+
+// Add CSS for ripple effect and existing styles
 const style = document.createElement('style');
 style.textContent = `
     body {
@@ -324,6 +440,37 @@ style.textContent = `
     .fade-in.visible {
         opacity: 1;
         transform: translateY(0);
+    }
+    
+    .skill-category {
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .ripple {
+        position: absolute;
+        border-radius: 50%;
+        background: rgba(59, 130, 246, 0.3);
+        transform: scale(0);
+        animation: ripple 0.6s linear;
+        pointer-events: none;
+    }
+    
+    @keyframes ripple {
+        to {
+            transform: scale(4);
+            opacity: 0;
+        }
+    }
+    
+    .skill-category.active .tech-icons {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    
+    .skill-category.active .tech-icon {
+        opacity: 1;
+        transform: scale(1);
     }
 `;
 document.head.appendChild(style); 
