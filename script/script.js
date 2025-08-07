@@ -629,3 +629,43 @@ function showNotification(message, type = 'info') {
         }, 300);
     }, 5000);
 } 
+
+// Project data for carousel - now shared between script.js and carousel.js
+window.projectData = [
+    {
+        title: "PAKU – Presensi Akurat Klinik Pratama Asih Usadha",
+        description: "Aplikasi Android berbasis BSSID Wi-Fi dan Geolocation untuk presensi staf klinik kesehatan dengan sistem keamanan yang tinggi dan interface yang intuitif.",
+        type: "Android App",
+        tech: ["Kotlin", "XML", "Firebase"],
+        features: ["Wi-Fi BSSID Detection", "Geolocation Tracking", "Secure Data Storage", "Real-time Analytics"],
+        stats: { months: 3, features: 5, success: "100%" },
+        image: "assets/logo_paku2.png",
+        github: "https://github.com/satriabumi/paku-app",
+        demo: "https://figma.com/proto/paku-app"
+    },
+    {
+        title: "SIPIMO - Sistem Pengingat Minum Obat",
+        description: "Aplikasi Android yang membantu pengguna mengatur jadwal dan pengingat konsumsi obat dengan interface yang user-friendly dan fitur yang lengkap.",
+        type: "Android App",
+        tech: ["Kotlin", "XML", "SQLite"],
+        features: ["Smart Scheduling", "Push Notifications", "Medicine Database", "Progress Tracking"],
+        stats: { months: 2, features: 4, success: "95%" },
+        image: "assets/sipimo.png",
+        github: "https://github.com/satriabumi/sipimo-app",
+        demo: "https://figma.com/proto/sipimo-app"
+    },
+    {
+        title: "Travlio - Website Agent Travel Penerbangan Logistik",
+        description: "Website wisata yang menyajikan destinasi, maskapai penerbangan, dan booking tiket untuk penerbangan di Indonesia dengan desain modern dan responsif.",
+        type: "Web App",
+        tech: ["HTML", "CSS", "JavaScript", "Bootstrap"],
+        features: ["Flight Booking System", "Destination Explorer", "Airline Integration", "Secure Payment"],
+        stats: { months: 4, features: 6, success: "90%" },
+        image: "assets/travlio.png",
+        github: "https://github.com/satriabumi/travlio-website",
+        demo: "https://travlio-website.vercel.app"
+    }
+];
+// Carousel initialization is now handled in carousel.js
+
+ 

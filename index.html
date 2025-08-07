@@ -200,8 +200,8 @@
                 </div>
             </div>
         </div>
-        <!-- Background elements -->
-        <div class="about-bg-elements">
+        <!-- Section divider with shared background -->
+        <div class="section-bg-elements">
             <div class="floating-circle"></div>
             <div class="floating-circle"></div>
             <div class="floating-circle"></div>
@@ -223,137 +223,94 @@
                 </div>
                 <div class="skills-grid">
                     <!-- Programming Languages -->
-                    <div class="skill-category" data-category="programming">
-                        <div class="category-header">
-                            <div class="category-icon">
-                                <i class="fas fa-code"></i>
-                            </div>
-                            <h3 class="category-title">Programming Languages</h3>
-                            <i class="fas fa-chevron-down category-expand"></i>
-                        </div>
-                        <div class="category-content">
-                            <div class="tech-icons">
-                                <div class="tech-icon" data-tech="html">
-                                    <img src="assets/html.png" alt="HTML">
-                                    <span class="tech-name">HTML</span>
-                                </div>
-                                <div class="tech-icon" data-tech="css">
-                                    <img src="assets/css.png" alt="CSS">
-                                    <span class="tech-name">CSS</span>
-                                </div>
-                                <div class="tech-icon" data-tech="javascript">
-                                    <img src="assets/javascript.png" alt="JavaScript">
-                                    <span class="tech-name">JavaScript</span>
-                                </div>
-                                <div class="tech-icon" data-tech="kotlin">
-                                    <img src="assets/kotlin.png" alt="Kotlin">
-                                    <span class="tech-name">Kotlin</span>
-                                </div>
-                                <div class="tech-icon" data-tech="python">
-                                    <img src="assets/python.png" alt="Python">
-                                    <span class="tech-name">Python</span>
-                                </div>
-                            </div>
+                    <div class="card-programming-languages"> 
+                        <div class="card">
+                          <div class="content-box">
+                            <span class="card-title">Programming Languages</span> 
+                            <p class="card-content">
+                                A collection of programming languages I actively use to build scalable, maintainable, 
+                                and high-performance applications across platforms — from web development to mobile and scripting automation.
+                            </p>
+                            <div class="tools-icons">
+                                <img src="assets/html.png" alt="HTML" />
+                                <img src="assets/css.png" alt="CSS" />
+                                <img src="assets/javascript.png" alt="JavaScript" />
+                                <img src="assets/kotlin.png" alt="Kotlin" />
+                                <img src="assets/python.png" alt="Python" />
+                              </div>
+                          </div>
+                          <div class="date-box">
+                            <i class="fas fa-code"></i>
+                          </div>
                         </div>
                     </div>
                     
                     <!-- Tools -->
-                    <div class="skill-category" data-category="tools">
-                        <div class="category-header">
-                            <div class="category-icon">
-                                <i class="fas fa-tools"></i>
-                            </div>
-                            <h3 class="category-title">Design & Development Tools</h3>
-                            <i class="fas fa-chevron-down category-expand"></i>
-                        </div>
-                        <div class="category-content">
-                            <div class="tech-icons">
-                                <div class="tech-icon" data-tech="figma">
-                                    <img src="assets/figma.png" alt="Figma">
-                                    <span class="tech-name">Figma</span>
-                                </div>
-                                <div class="tech-icon" data-tech="canva">
-                                    <img src="assets/canva.png" alt="Canva">
-                                    <span class="tech-name">Canva</span>
-                                </div>
-                                <div class="tech-icon" data-tech="premiere">
-                                    <img src="assets/premiere-pro.png" alt="Premiere Pro">
-                                    <span class="tech-name">Premiere Pro</span>
-                                </div>
-                                <div class="tech-icon" data-tech="colab">
-                                    <img src="assets/colab.png" alt="Google Colab">
-                                    <span class="tech-name">Google Colab</span>
-                                </div>
-                                <div class="tech-icon" data-tech="spreadsheet">
-                                    <img src="assets/spreadsheet.png" alt="Spreadsheet">
-                                    <span class="tech-name">Spreadsheet</span>
-                                </div>
-                            </div>
+                    <div class="card-tools"> 
+                        <div class="card">
+                          <div class="content-box">
+                            <span class="card-title">Tools</span> 
+                            <p class="card-content">
+                                A versatile toolkit I use to design user interfaces, create engaging visual content, manage structured data,
+                                and run collaborative coding workflows — empowering every stage of my development and creative process.
+                            </p>
+                            <div class="tools-icons">
+                                <img src="assets/figma.png" alt="Figma" />
+                                <img src="assets/canva.png" alt="Canva" />
+                                <img src="assets/spreadsheet.png" alt="Spreadsheet" />
+                                <img src="assets/colab.png" alt="Google Colab" />
+                              </div>
+                          </div>
+                          <div class="date-box">
+                            <i class="fas fa-tools"></i>
+                          </div>
                         </div>
                     </div>
                     
                     <!-- Platforms -->
-                    <div class="skill-category" data-category="platforms">
-                        <div class="category-header">
-                            <div class="category-icon">
-                                <i class="fas fa-desktop"></i>
+                    <div class="card-platforms"> 
+                        <div class="card">
+                          <div class="content-box">
+                            <span class="card-title">Platforms</span> 
+                            <p class="card-content">
+                                Visual Studio Code for efficient web development and Android Studio for building powerful mobile applications.
+                            </p>
+                            <div class="tools-icons">
+                                <img src="assets/vscode.png" alt="VS Code" />
+                                <img src="assets/android_studio.png" alt="Android Studio" />
                             </div>
-                            <h3 class="category-title">Development Platforms</h3>
-                            <i class="fas fa-chevron-down category-expand"></i>
-                        </div>
-                        <div class="category-content">
-                            <div class="tech-icons">
-                                <div class="tech-icon" data-tech="android-studio">
-                                    <img src="assets/android_studio.png" alt="Android Studio">
-                                    <span class="tech-name">Android Studio</span>
-                                </div>
-                                <div class="tech-icon" data-tech="vscode">
-                                    <img src="assets/vscode.png" alt="VS Code">
-                                    <span class="tech-name">VS Code</span>
-                                </div>
-                            </div>
+                          </div>
+                          <div class="date-box">
+                            <i class="fas fa-desktop"></i>
+                          </div>
                         </div>
                     </div>
-                    
                     <!-- Soft Skills -->
-                    <div class="skill-category" data-category="soft-skills">
-                        <div class="category-header">
-                            <div class="category-icon">
-                                <i class="fas fa-users"></i>
+                    <div class="card-soft-skills"> 
+                        <div class="card">
+                          <div class="content-box">
+                            <span class="card-title">Soft Skills</span> 
+                            <p class="card-content">
+                                Communication, teamwork, problem solving, attention to detail, and creativity are essential for collaboration in every project.
+                            </p>
+                            <div class="tools-icons">
+                                <i class="fas fa-comments" title="Communication"></i>
+                                <i class="fas fa-handshake" title="Teamwork"></i>
+                                <i class="fas fa-lightbulb" title="Problem Solving"></i>
+                                <i class="fas fa-search" title="Attention to Detail"></i>
+                                <i class="fas fa-palette" title="Creativity"></i>
                             </div>
-                            <h3 class="category-title">Soft Skills</h3>
-                            <i class="fas fa-chevron-down category-expand"></i>
-                        </div>
-                        <div class="category-content">
-                            <div class="tech-icons">
-                                <div class="tech-icon" data-tech="communication">
-                                    <i class="fas fa-comments"></i>
-                                    <span class="tech-name">Communication</span>
-                                </div>
-                                <div class="tech-icon" data-tech="teamwork">
-                                    <i class="fas fa-handshake"></i>
-                                    <span class="tech-name">Teamwork</span>
-                                </div>
-                                <div class="tech-icon" data-tech="problem-solving">
-                                    <i class="fas fa-lightbulb"></i>
-                                    <span class="tech-name">Problem Solving</span>
-                                </div>
-                                <div class="tech-icon" data-tech="attention">
-                                    <i class="fas fa-search"></i>
-                                    <span class="tech-name">Attention to Detail</span>
-                                </div>
-                                <div class="tech-icon" data-tech="creativity">
-                                    <i class="fas fa-palette"></i>
-                                    <span class="tech-name">Creativity</span>
-                                </div>
-                            </div>
+                          </div>
+                          <div class="date-box">
+                            <i class="fas fa-users"></i>
+                          </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- Background elements -->
-        <div class="skills-bg-elements">
+        <!-- Section divider with shared background -->
+        <div class="section-bg-elements">
             <div class="floating-circle"></div>
             <div class="floating-circle"></div>
             <div class="floating-circle"></div>
@@ -365,183 +322,144 @@
     <section id="projects" class="projects">
         <div class="container">
             <h2 class="section-title">My Projects</h2>
+            <p class="skills-description">
+                        Beberapa project yang telah saya kerjakan dengan berkolaborasi bersama team.
+                    </p>
             <div class="projects-content">
-                <div class="projects-intro">
-                </div>
-                <div class="projects-grid">
-                    <div class="project-card">
-                        <div class="project-header">
-                            <div class="project-badge">
-                                <i class="fas fa-mobile-alt"></i>
-                                <span>Android App</span>
-                            </div>
-                            <div class="project-status">
-                                <span class="status-dot"></span>
-                                <span>Completed</span>
-                            </div>
-                        </div>
-                        <div class="project-image">
-                            <img src="assets/logo_paku2.png" alt="PAKU App">
-                            <div class="project-overlay">
-                                <div class="project-preview">
-                                    <i class="fas fa-play"></i>
-                                    <span>Preview</span>
+                <!-- 3D carousel -->
+                <div class="carousel-simple">
+                    <div class="floating-elements"></div>
+                    <div class="carousel-viewport">
+                        <div class="carousel-slide active" data-index="0">
+                            <div class="project-card-simple">
+                                <div class="card-header-simple">
+                                    <div class="project-badge-simple">
+                                        <i class="fas fa-mobile-alt"></i>
+                                        <span>Android App</span>
+                                    </div>
+                                    <div class="project-status-simple">
+                                        <span class="status-dot-simple"></span>
+                                        <span>Completed</span>
+                                    </div>
+                                </div>
+                                <div class="card-image-simple">
+                                    <img src="assets/paku.png" alt="PAKU App">
+                                </div>
+                                <div class="card-content-simple">
+                                    <h3 class="project-title-simple">PAKU – Presensi Akurat Klinik Pratama Asih Usadha</h3>
+                                    <p class="project-description-simple">
+                                        Aplikasi Android berbasis BSSID Wi-Fi dan Geolocation untuk presensi staf klinik kesehatan dengan sistem keamanan yang tinggi dan interface yang intuitif.
+                                    </p>
+                                    <div class="project-tech-simple">
+                                        <span class="tech-tag-simple">Kotlin</span>
+                                        <span class="tech-tag-simple">XML</span>
+                                    </div>
+                                    <div class="project-links-simple">
+                                        <a href="https://github.com/satriabumi/paku-app" target="_blank" class="btn-project">
+                                            <i class="fab fa-github"></i>
+                                            <span>View Code</span>
+                                        </a>
+                                        <a href="https://figma.com/proto/paku-app" target="_blank" class="btn-project">
+                                            <i class="fas fa-external-link-alt"></i>
+                                            <span>Prototype</span>
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="project-content">
-                            <div class="project-title">
-                                <h3>PAKU – Presensi Akurat Klinik Pratama Asih Usadha</h3>
-                            </div>
-                            <p class="project-description">
-                                Aplikasi Android berbasis BSSID Wi-Fi dan Geolocation untuk presensi staf klinik kesehatan.
-                            </p>
-                            <div class="project-features">
-                                <div class="feature-item">
-                                    <i class="fas fa-wifi"></i>
-                                    <span>Wi-Fi BSSID</span>
+
+                        <div class="carousel-slide" data-index="1">
+                            <div class="project-card-simple">
+                                <div class="card-header-simple">
+                                    <div class="project-badge-simple">
+                                        <i class="fas fa-mobile-alt"></i>
+                                        <span>Android App</span>
+                                    </div>
+                                    <div class="project-status-simple">
+                                        <span class="status-dot-simple"></span>
+                                        <span>Completed</span>
+                                    </div>
                                 </div>
-                                <div class="feature-item">
-                                    <i class="fas fa-map-marker-alt"></i>
-                                    <span>Geolocation</span>
+                                <div class="card-image-simple">
+                                    <img src="assets/sipimo.png" alt="SIPIMO App">
                                 </div>
-                                <div class="feature-item">
-                                    <i class="fas fa-shield-alt"></i>
-                                    <span>Secure Data</span>
+                                <div class="card-content-simple">
+                                    <h3 class="project-title-simple">SIPIMO - Sistem Pengingat Minum Obat</h3>
+                                    <p class="project-description-simple">
+                                        Aplikasi Android yang membantu pengguna mengatur jadwal dan pengingat konsumsi obat dengan interface yang user-friendly dan fitur yang lengkap.
+                                    </p>
+                                    <div class="project-tech-simple">
+                                        <span class="tech-tag-simple">Kotlin</span>
+                                        <span class="tech-tag-simple">XML</span>
+
+                                    </div>
+                                    <div class="project-links-simple">
+                                        <a href="https://github.com/satriabumi/sipimo-app" target="_blank" class="btn-project">
+                                            <i class="fab fa-github"></i>
+                                            <span>View Code</span>
+                                        </a>
+                                        <a href="https://figma.com/proto/sipimo-app" target="_blank" class="btn-project">
+                                            <i class="fas fa-external-link-alt"></i>
+                                            <span>Prototype</span>
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="project-tech">
-                                <span class="tech-tag">Kotlin</span>
-                                <span class="tech-tag">XML</span>
-                            </div>
-                            <div class="project-links">
-                                <a href="#" class="project-link primary">
-                                    <i class="fab fa-github"></i>
-                                    <span>View Code</span>
-                                </a>
-                                <a href="#" class="project-link secondary">
-                                    <i class="fas fa-external-link-alt"></i>
-                                    <span>Prototype</span>
-                                </a>
+                        </div>
+
+                        <div class="carousel-slide" data-index="2">
+                            <div class="project-card-simple">
+                                <div class="card-header-simple">
+                                    <div class="project-badge-simple">
+                                        <i class="fas fa-globe"></i>
+                                        <span>Web App</span>
+                                    </div>
+                                    <div class="project-status-simple">
+                                        <span class="status-dot-simple"></span>
+                                        <span>Completed</span>
+                                    </div>
+                                </div>
+                                <div class="card-image-simple">
+                                    <img src="assets/travlio.png" alt="Travlio Website">
+                                </div>
+                                <div class="card-content-simple">
+                                    <h3 class="project-title-simple">Travlio - Website Agent Travel Penerbangan Logistik</h3>
+                                    <p class="project-description-simple">
+                                        Website wisata yang menyajikan destinasi, maskapai penerbangan, dan booking tiket untuk penerbangan di Indonesia dengan desain modern dan responsif.
+                                    </p>
+                                    <div class="project-tech-simple">
+                                        <span class="tech-tag-simple">HTML</span>
+                                        <span class="tech-tag-simple">CSS</span>
+                                        <span class="tech-tag-simple">JavaScript</span>
+                                    </div>
+                                    <div class="project-links-simple">
+                                        <a href="https://github.com/satriabumi/travlio-website" target="_blank" class="btn-project">
+                                            <i class="fab fa-github"></i>
+                                            <span>View Code</span>
+                                        </a>
+                                        <a href="https://travlio-website.vercel.app" target="_blank" class="btn-project">
+                                            <i class="fas fa-external-link-alt"></i>
+                                            <span>Live Demo</span>
+                                        </a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                     
-                    <div class="project-card">
-                        <div class="project-header">
-                            <div class="project-badge">
-                                <i class="fas fa-mobile-alt"></i>
-                                <span>Android App</span>
-                            </div>
-                            <div class="project-status">
-                                <span class="status-dot"></span>
-                                <span>Completed</span>
-                            </div>
+                    <!-- Simple Navigation -->
+                    <div class="carousel-nav-simple">
+                        <button class="nav-btn-simple prev-btn-simple" aria-label="Previous project">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <div class="nav-indicators-simple">
+                            <button class="indicator-simple active" data-index="0"></button>
+                            <button class="indicator-simple" data-index="1"></button>
+                            <button class="indicator-simple" data-index="2"></button>
                         </div>
-                        <div class="project-image">
-                            <img src="assets/sipimo.png" alt="SIPIMO App">
-                            <div class="project-overlay">
-                                <div class="project-preview">
-                                    <i class="fas fa-play"></i>
-                                    <span>Preview</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="project-content">
-                            <div class="project-title">
-                                <h3>SIPIMO - Sistem Pengingat Minum Obat</h3>
-                            </div>
-                            <p class="project-description">
-                                Aplikasi Android yang membantu pengguna mengatur jadwal dan pengingat konsumsi obat.
-                            </p>
-                            <div class="project-features">
-                                <div class="feature-item">
-                                    <i class="fas fa-clock"></i>
-                                    <span>Schedule</span>
-                                </div>
-                                <div class="feature-item">
-                                    <i class="fas fa-bell"></i>
-                                    <span>Reminders</span>
-                                </div>
-                                <div class="feature-item">
-                                    <i class="fas fa-pills"></i>
-                                    <span>Medicine</span>
-                                </div>
-                            </div>
-                            <div class="project-tech">
-                                <span class="tech-tag">Kotlin</span>
-                                <span class="tech-tag">XML</span>
-                            </div>
-                            <div class="project-links">
-                                <a href="#" class="project-link primary">
-                                    <i class="fab fa-github"></i>
-                                    <span>View Code</span>
-                                </a>
-                                <a href="#" class="project-link secondary">
-                                    <i class="fas fa-external-link-alt"></i>
-                                    <span>Prototype</span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="project-card">
-                        <div class="project-header">
-                            <div class="project-badge">
-                                <i class="fas fa-globe"></i>
-                                <span>Web App</span>
-                            </div>
-                            <div class="project-status">
-                                <span class="status-dot"></span>
-                                <span>Completed</span>
-                            </div>
-                        </div>
-                        <div class="project-image">
-                            <img src="assets/travlio.png" alt="Travlio Website">
-                            <div class="project-overlay">
-                                <div class="project-preview">
-                                    <i class="fas fa-play"></i>
-                                    <span>Preview</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="project-content">
-                            <div class="project-title">
-                                <h3>Travlio - Website Agent Travel Penerbangan Logistik</h3>
-                            </div>
-                            <p class="project-description">
-                                Website wisata yang menyajikan destinasi, maskapai penerbangan, dan booking tiket untuk penerbangan di Indonesia.
-                            </p>
-                            <div class="project-features">
-                                <div class="feature-item">
-                                    <i class="fas fa-plane"></i>
-                                    <span>Flight Booking</span>
-                                </div>
-                                <div class="feature-item">
-                                    <i class="fas fa-map"></i>
-                                    <span>Destinations</span>
-                                </div>
-                                <div class="feature-item">
-                                    <i class="fas fa-plane"></i>
-                                    <span>Airlines</span>
-                                </div>
-                            </div>
-                            <div class="project-tech">
-                                <span class="tech-tag">HTML</span>
-                                <span class="tech-tag">CSS</span>
-                                <span class="tech-tag">JavaScript</span>
-                            </div>
-                            <div class="project-links">
-                                <a href="#" class="project-link primary">
-                                    <i class="fab fa-github"></i>
-                                    <span>View Code</span>
-                                </a>
-                                <a href="#" class="project-link secondary">
-                                    <i class="fas fa-external-link-alt"></i>
-                                    <span>Live Demo</span>
-                                </a>
-                            </div>
-                        </div>
+                        <button class="nav-btn-simple next-btn-simple" aria-label="Next project">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
                     </div>
                 </div>
             </div>
@@ -633,5 +551,6 @@
     </footer>
 
     <script src="script/script.js"></script>
+    <script src="script/carousel.js"></script>
 </body>
 </html>
