@@ -1,14 +1,15 @@
 // Access projectData from window object
 const projectData = window.projectData;
 
-class ElegantCarousel {
+class ResponsiveCarousel {
     constructor() {
         this.currentIndex = 0;
-        this.totalItems = projectData.length;
+        this.slides = [];
         this.isAnimating = false;
         this.autoPlayInterval = null;
         this.touchStartX = 0;
         this.touchEndX = 0;
+        this.slidesPerView = 1; // Default for mobile
         
         this.init();
     }
@@ -26,38 +27,67 @@ class ElegantCarousel {
             return;
         }
         
+        // Convert NodeList to Array for easier manipulation
+        this.slides = Array.from(this.carouselSlides);
+        this.totalSlides = this.slides.length;
+        
+        // Set responsive breakpoints
+        this.setResponsiveBreakpoints();
+        
         // Set initial state
         this.setInitialState();
         this.bindEvents();
         this.startAutoPlay();
+        
+        // Handle window resize
+        window.addEventListener('resize', () => {
+            this.handleResize();
+        });
+    }
+
+    setResponsiveBreakpoints() {
+        const width = window.innerWidth;
+        if (width >= 1200) {
+            this.slidesPerView = 3;
+        } else if (width >= 768) {
+            this.slidesPerView = 2;
+        } else {
+            this.slidesPerView = 1;
+        }
+    }
+
+    handleResize() {
+        const oldSlidesPerView = this.slidesPerView;
+        this.setResponsiveBreakpoints();
+        
+        if (oldSlidesPerView !== this.slidesPerView) {
+            this.updateCarousel();
+        }
     }
 
     setInitialState() {
-        this.carouselSlides.forEach((slide, index) => {
-            const adjustedIndex = (index - this.currentIndex + this.totalItems) % this.totalItems;
-            slide.setAttribute('data-index', adjustedIndex);
-            
-            if (adjustedIndex === 0) {
-                slide.classList.add('active');
-                slide.style.opacity = '1';
-                slide.style.transform = 'translateX(-50%) translateZ(0) rotateY(0deg)';
-                slide.style.zIndex = '3';
-                slide.style.filter = 'blur(0px)';
-                slide.style.pointerEvents = 'all';
-            } else if (adjustedIndex === 1) {
-                slide.style.transform = 'translateX(25%) translateZ(-200px) rotateY(25deg)';
-                slide.style.opacity = '0.8';
-                slide.style.zIndex = '2';
-                slide.style.filter = 'blur(1px)';
-                slide.style.pointerEvents = 'all';
-            } else if (adjustedIndex === 2) {
-                slide.style.transform = 'translateX(-125%) translateZ(-200px) rotateY(-25deg)';
-                slide.style.opacity = '0.8';
-                slide.style.zIndex = '1';
-                slide.style.filter = 'blur(1px)';
-                slide.style.pointerEvents = 'all';
+        this.slides.forEach((slide, index) => {
+            if (this.slidesPerView === 3) {
+                // Desktop 3D mode
+                slide.style.transition = 'all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1)';
+                slide.style.position = 'absolute';
+                slide.style.width = '100%';
+                slide.style.maxWidth = '750px';
+                slide.style.left = '50%';
+                slide.style.top = '0';
+                slide.style.transformStyle = 'preserve-3d';
+            } else {
+                // Mobile/Tablet responsive mode
+                slide.style.transition = 'all 0.5s ease-in-out';
+                slide.style.position = 'absolute';
+                slide.style.width = `${100 / this.slidesPerView}%`;
+                slide.style.left = '0';
+                slide.style.top = '0';
+                slide.style.transformStyle = 'flat';
             }
         });
+        
+        this.updateCarousel();
     }
     
     bindEvents() {
@@ -99,20 +129,25 @@ class ElegantCarousel {
             });
         }
 
-        this.carouselSlides.forEach((slide) => {
+        // Handle slide clicks for navigation
+        this.slides.forEach((slide, index) => {
             slide.addEventListener('click', (e) => {
-                // Check if the click target is a link or button
                 const isLinkOrButton = e.target.closest('a') || e.target.closest('button');
                 
-                // Only prevent default and handle carousel navigation if not clicking on a link/button
                 if (!isLinkOrButton) {
                     e.preventDefault();
-                    const slideIndex = parseInt(slide.getAttribute('data-index'));
                     
-                    if (slideIndex === 1) {
-                        this.next();
-                    } else if (slideIndex === 2) {
-                        this.prev();
+                    // For desktop 3D mode, handle side slide clicks
+                    if (this.slidesPerView === 3) {
+                        const slideIndex = parseInt(slide.getAttribute('data-index'));
+                        if (slideIndex === 1) {
+                            this.next();
+                        } else if (slideIndex === 2) {
+                            this.prev();
+                        }
+                    } else {
+                        // For mobile/tablet mode, go directly to clicked slide
+                        this.goTo(index);
                     }
                 }
             });
@@ -136,75 +171,105 @@ class ElegantCarousel {
         if (this.isAnimating) return;
         this.isAnimating = true;
         
-        this.currentIndex = (this.currentIndex - 1 + this.totalItems) % this.totalItems;
-        
-        const currentSlide = document.querySelector('.carousel-slide.active');
-        if (currentSlide) {
-            currentSlide.classList.add('slide-out-right');
-        }
-        
+        this.currentIndex = (this.currentIndex - 1 + this.totalSlides) % this.totalSlides;
         this.updateCarousel();
         
         setTimeout(() => {
-            this.cleanupAnimations();
-        }, 800);
+            this.isAnimating = false;
+        }, 500);
     }
     
     next() {
         if (this.isAnimating) return;
         this.isAnimating = true;
         
-        this.currentIndex = (this.currentIndex + 1) % this.totalItems;
-        
-        const currentSlide = document.querySelector('.carousel-slide.active');
-        if (currentSlide) {
-            currentSlide.classList.add('slide-out-left');
-        }
-        
+        this.currentIndex = (this.currentIndex + 1) % this.totalSlides;
         this.updateCarousel();
         
         setTimeout(() => {
-            this.cleanupAnimations();
-        }, 800);
+            this.isAnimating = false;
+        }, 500);
     }
     
     updateCarousel() {
-        this.carouselSlides.forEach((slide, index) => {
-            const adjustedIndex = (index - this.currentIndex + this.totalItems) % this.totalItems;
-            slide.setAttribute('data-index', adjustedIndex);
+        const maxIndex = this.totalSlides - this.slidesPerView;
+        let adjustedIndex = this.currentIndex;
+        
+        // Handle infinite loop
+        if (adjustedIndex < 0) {
+            adjustedIndex = this.totalSlides + adjustedIndex;
+        } else if (adjustedIndex > maxIndex) {
+            adjustedIndex = adjustedIndex % this.totalSlides;
+        }
+        
+        this.slides.forEach((slide, index) => {
+            let slideIndex = (index - adjustedIndex + this.totalSlides) % this.totalSlides;
             
-            if (adjustedIndex === 0) {
-                slide.classList.add('active');
-                slide.style.transform = 'translateX(-50%) translateZ(0) rotateY(0deg)';
-                slide.style.opacity = '1';
-                slide.style.zIndex = '3';
-                slide.style.filter = 'blur(0px)';
-                slide.style.pointerEvents = 'all';
-            } else if (adjustedIndex === 1) {
-                slide.classList.remove('active');
-                slide.style.transform = 'translateX(25%) translateZ(-200px) rotateY(25deg)';
-                slide.style.opacity = '0.8';
-                slide.style.zIndex = '2';
-                slide.style.filter = 'blur(1px)';
-                slide.style.pointerEvents = 'all';
-            } else if (adjustedIndex === 2) {
-                slide.classList.remove('active');
-                slide.style.transform = 'translateX(-125%) translateZ(-200px) rotateY(-25deg)';
-                slide.style.opacity = '0.8';
-                slide.style.zIndex = '1';
-                slide.style.filter = 'blur(1px)';
-                slide.style.pointerEvents = 'all';
+            // Check if we're on desktop (3 slides per view) or mobile/tablet
+            if (this.slidesPerView === 3) {
+                // Desktop 3D mode
+                slide.setAttribute('data-index', slideIndex);
+                
+                if (slideIndex === 0) {
+                    slide.classList.add('active');
+                    slide.style.transform = 'translateX(-50%) translateZ(0) rotateY(0deg)';
+                    slide.style.opacity = '1';
+                    slide.style.zIndex = '3';
+                    slide.style.filter = 'blur(0px)';
+                    slide.style.pointerEvents = 'all';
+                } else if (slideIndex === 1) {
+                    slide.classList.remove('active');
+                    slide.style.transform = 'translateX(25%) translateZ(-200px) rotateY(25deg)';
+                    slide.style.opacity = '0.8';
+                    slide.style.zIndex = '2';
+                    slide.style.filter = 'blur(1px)';
+                    slide.style.pointerEvents = 'all';
+                } else if (slideIndex === 2) {
+                    slide.classList.remove('active');
+                    slide.style.transform = 'translateX(-125%) translateZ(-200px) rotateY(-25deg)';
+                    slide.style.opacity = '0.8';
+                    slide.style.zIndex = '1';
+                    slide.style.filter = 'blur(1px)';
+                    slide.style.pointerEvents = 'all';
+                } else {
+                    slide.classList.remove('active');
+                    slide.style.opacity = '0';
+                    slide.style.pointerEvents = 'none';
+                }
+            } else {
+                // Mobile/Tablet responsive mode
+                slide.removeAttribute('data-index');
+                
+                // Calculate position based on slides per view
+                let position = 0;
+                let opacity = 0;
+                let zIndex = 1;
+                let transform = 'scale(0.8)';
+                
+                if (slideIndex < this.slidesPerView) {
+                    position = (slideIndex * 100) / this.slidesPerView;
+                    opacity = 1;
+                    zIndex = this.slidesPerView - slideIndex + 1;
+                    transform = 'scale(1)';
+                    
+                    if (slideIndex === 0) {
+                        slide.classList.add('active');
+                    } else {
+                        slide.classList.remove('active');
+                    }
+                } else {
+                    slide.classList.remove('active');
+                }
+                
+                slide.style.left = `${position}%`;
+                slide.style.opacity = opacity;
+                slide.style.zIndex = zIndex;
+                slide.style.transform = transform;
+                slide.style.filter = 'none';
             }
         });
 
         this.updateIndicators();
-    }
-    
-    cleanupAnimations() {
-        this.carouselSlides.forEach(slide => {
-            slide.classList.remove('slide-in-left', 'slide-in-right', 'slide-out-left', 'slide-out-right');
-        });
-        this.isAnimating = false;
     }
     
     updateIndicators() {
@@ -220,20 +285,14 @@ class ElegantCarousel {
     goTo(index) {
         if (this.isAnimating || index === this.currentIndex) return;
         
-        const direction = index > this.currentIndex ? 'next' : 'prev';
         this.currentIndex = index;
-        
-        if (direction === 'next') {
-            this.next();
-        } else {
-            this.prev();
-        }
+        this.updateCarousel();
     }
     
     startAutoPlay() {
         this.autoPlayInterval = setInterval(() => {
             this.next();
-        }, 6000);
+        }, 5000);
     }
     
     pauseAutoPlay() {
@@ -252,5 +311,5 @@ class ElegantCarousel {
 
 // Initialize carousel when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
-    new ElegantCarousel();
+    new ResponsiveCarousel();
 });
