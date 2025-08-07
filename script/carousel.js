@@ -101,13 +101,19 @@ class ElegantCarousel {
 
         this.carouselSlides.forEach((slide) => {
             slide.addEventListener('click', (e) => {
-                e.preventDefault();
-                const slideIndex = parseInt(slide.getAttribute('data-index'));
+                // Check if the click target is a link or button
+                const isLinkOrButton = e.target.closest('a') || e.target.closest('button');
                 
-                if (slideIndex === 1) {
-                    this.next();
-                } else if (slideIndex === 2) {
-                    this.prev();
+                // Only prevent default and handle carousel navigation if not clicking on a link/button
+                if (!isLinkOrButton) {
+                    e.preventDefault();
+                    const slideIndex = parseInt(slide.getAttribute('data-index'));
+                    
+                    if (slideIndex === 1) {
+                        this.next();
+                    } else if (slideIndex === 2) {
+                        this.prev();
+                    }
                 }
             });
         });
