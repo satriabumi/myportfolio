@@ -992,217 +992,6 @@ body {
     }
 }
 
-/* widget github */
-.github-widget {
-    margin-bottom: 2.5rem;
-    display: flex;
-    justify-content: flex-start;
-    width: 100%;
-}
-
-.github-card {
-    background: linear-gradient(135deg, #0d1117 0%, #161b22 50%, #21262d 100%);
-    border-radius: 20px;
-    padding: 2rem;
-    box-shadow: 0 15px 30px rgba(13, 17, 23, 0.4);
-    backdrop-filter: blur(5px);
-    border: 1px solid rgba(48, 54, 61, 0.3);
-    max-width: 500px;
-    width: 100%;
-    transition: all 0.3s ease;
-    position: relative;
-    overflow: hidden;
-}
-
-.github-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.05), transparent);
-    transform: translateX(-100%);
-    transition: transform 0.6s ease;
-}
-
-.github-card:hover::before {
-    transform: translateX(100%);
-}
-
-.github-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 25px 50px rgba(13, 17, 23, 0.8);
-    border-color: rgba(35, 134, 54, 0.7);
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-
-.github-header {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    margin-bottom: 1rem;
-}
-
-.github-icon {
-    color: #f0f6fc;
-    font-size: 1.5rem;
-}
-
-.github-status {
-    color: #f0f6fc;
-    font-size: 0.9rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-.github-content {
-    display: flex;
-    align-items: center;
-    gap: 1.2rem;
-    margin-bottom: 1.5rem;
-}
-
-.github-avatar {
-    width: 70px;
-    height: 70px;
-    border-radius: 50%;
-    overflow: hidden;
-    border: 2px solid rgba(48, 54, 61, 0.5);
-    background: #0d1117;
-    flex-shrink: 0;
-}
-
-.avatar-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.3s ease;
-}
-
-.github-card:hover .avatar-img {
-    transform: scale(1.05);
-}
-
-.github-info {
-    flex: 1;
-}
-
-.github-username {
-    color: #f0f6fc;
-    font-size: 1.1rem;
-    font-weight: 700;
-    margin-bottom: 0.5rem;
-    line-height: 1.2;
-    text-shadow: 0 0 10px rgba(240, 246, 252, 0.3);
-}
-
-.github-bio {
-    color: #7d8590;
-    font-size: 0.95rem;
-    font-weight: 500;
-    line-height: 1.4;
-    word-wrap: break-word;
-}
-
-.github-controls {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 45px;
-    height: 45px;
-    background: linear-gradient(135deg, #238636 0%, #2ea043 100%);
-    border-radius: 50%;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    border: 2px solid rgba(35, 134, 54, 0.5);
-    text-decoration: none;
-    position: relative;
-    overflow: hidden;
-    z-index: 20;
-}
-
-.github-controls:hover {
-    background: linear-gradient(135deg, #2ea043 0%, #238636 100%);
-    transform: scale(1.15) rotate(8deg);
-    box-shadow: 0 0 30px rgba(35, 134, 54, 0.8);
-    border-color: rgba(35, 134, 54, 0.9);
-    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-
-.github-controls::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-    transition: left 0.5s ease;
-}
-
-.github-controls:hover::before {
-    left: 100%;
-}
-
-.github-controls i {
-    color: white;
-    font-size: 1.1rem;
-}
-
-.github-widget .github-stats {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
-    margin-bottom: 1.5rem;
-}
-
-@media (max-width: 768px) {
-    .github-widget .github-stats {
-        grid-template-columns: repeat(3, 1fr);
-        gap: 1rem;
-        margin-bottom: 1rem;
-    }
-    
-    .stat-item {
-        padding: 0.6rem 0.4rem;
-    }
-    
-    .stat-number {
-        font-size: 1.4rem;
-        margin-bottom: 0.3rem;
-    }
-    
-    .stat-label {
-        font-size: 0.75rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .github-stats {
-        grid-template-columns: repeat(3, 1fr);
-        gap: 0.8rem;
-        margin-bottom: 1rem;
-    }
-    
-    .stat-item {
-        padding: 0.5rem 0.3rem;
-    }
-    
-    .stat-number {
-        font-size: 1.2rem;
-        margin-bottom: 0.25rem;
-        text-align: center;
-        width: 100%;
-    }
-    
-    .stat-label {
-        font-size: 0.7rem;
-        line-height: 1.1;
-    }
-}
-
 .stat-item {
     text-align: center;
     padding: 0.75rem 0.5rem;
@@ -1876,7 +1665,7 @@ section {
 
 .skills-intro {
     text-align: center;
-    margin-bottom: 4rem;
+    margin-bottom: 2.5rem;
     opacity: 0;
     transform: translateY(30px);
     animation: fadeInUp 1s ease forwards 0.5s;
@@ -2116,7 +1905,7 @@ section {
 
 .projects-intro {
     text-align: center;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
     opacity: 0;
     transform: translateY(30px);
     animation: fadeInUp 1s ease forwards 0.5s;
@@ -2512,16 +2301,14 @@ section {
 .contact-content {
   position: relative;
   z-index: 1;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 3rem;
-  align-items: start;
+  display: flex;
+  justify-content: center;
   margin-bottom: 3rem;
   max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
 }
-.contact-info, .contact-github-card {
+.contact-info {
   flex: 1 1 0;
   min-width: 0;
   min-height: 340px;
@@ -2537,6 +2324,453 @@ section {
   gap: 1.5rem;
   justify-content: center;
 }
+
+/* New GitHub Statistics Widget */
+.github-stats-widget {
+  width: 100%;
+  max-width: 600px;
+  min-height: 280px;
+  display: flex;
+  align-items: stretch;
+  justify-content: stretch;
+}
+
+.github-card-new {
+  background: linear-gradient(135deg, #0d1117 0%, #161b22 50%, #21262d 100%);
+  border-radius: 24px;
+  padding: 1.2rem;
+  box-shadow: 0 20px 40px rgba(13, 17, 23, 0.6);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(48, 54, 61, 0.4);
+  width: 100%;
+  height: 100%;
+  min-height: 220px;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.github-card-new::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.03), transparent);
+  transform: translateX(-100%);
+  transition: transform 0.8s ease;
+}
+
+.github-card-new:hover::before {
+  transform: translateX(100%);
+}
+
+.github-card-new:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 30px 60px rgba(13, 17, 23, 0.8);
+  border-color: rgba(35, 134, 54, 0.6);
+}
+
+/* GitHub Header */
+.github-header-new {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin-bottom: 1.5rem;
+}
+
+.github-icon-container {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #238636 0%, #2ea043 100%);
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(35, 134, 54, 0.4);
+}
+
+.github-icon-container i {
+  color: white;
+  font-size: 1.2rem;
+  z-index: 2;
+}
+
+.icon-glow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, #238636 0%, #2ea043 100%);
+  border-radius: 12px;
+  filter: blur(8px);
+  opacity: 0.6;
+  animation: iconPulse 2s ease-in-out infinite;
+}
+
+.github-title h3 {
+  color: #f0f6fc;
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin: 0;
+  text-shadow: 0 0 10px rgba(240, 246, 252, 0.3);
+}
+
+.github-title p {
+  color: #7d8590;
+  font-size: 0.8rem;
+  margin: 0.2rem 0 0 0;
+  font-weight: 500;
+}
+
+/* GitHub Profile */
+.github-profile {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.2rem;
+  padding: 0.8rem;
+  background: rgba(48, 54, 61, 0.2);
+  border-radius: 16px;
+  border: 1px solid rgba(48, 54, 61, 0.3);
+}
+
+.profile-avatar {
+  position: relative;
+  width: 55px;
+  height: 55px;
+  flex-shrink: 0;
+}
+
+.avatar-img-new {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid rgba(35, 134, 54, 0.5);
+  transition: transform 0.3s ease;
+}
+
+.avatar-ring {
+  position: absolute;
+  top: -3px;
+  left: -3px;
+  right: -3px;
+  bottom: -3px;
+  border: 2px solid rgba(35, 134, 54, 0.3);
+  border-radius: 50%;
+  animation: avatarRotate 4s linear infinite;
+}
+
+.avatar-pulse {
+  position: absolute;
+  top: -6px;
+  left: -6px;
+  right: -6px;
+  bottom: -6px;
+  border: 1px solid rgba(35, 134, 54, 0.2);
+  border-radius: 50%;
+  animation: avatarPulse 2s ease-in-out infinite;
+}
+
+.profile-info {
+  flex: 1;
+}
+
+.username {
+  color: #f0f6fc;
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin: 0 0 0.5rem 0;
+  text-shadow: 0 0 10px rgba(240, 246, 252, 0.3);
+}
+
+.bio {
+  color: #7d8590;
+  font-size: 0.95rem;
+  margin: 0 0 0.8rem 0;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.collaboration-text {
+  color: #7d8590;
+  font-size: 0.9rem;
+  margin: 0 0 1.2rem 0;
+  font-weight: 400;
+  line-height: 1.5;
+  font-style: italic;
+}
+
+.contact-details-new {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  margin-bottom: 1.2rem;
+}
+
+.contact-item-new {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  color: #e0e7ef;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.contact-item-new i {
+  color: #60a5fa;
+  font-size: 1rem;
+  width: 16px;
+  text-align: center;
+}
+
+.contact-link-new {
+  color: #e0e7ef;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border-bottom: 1px solid transparent;
+}
+
+.contact-link-new:hover {
+  color: #60a5fa;
+  border-bottom-color: #60a5fa;
+}
+
+.github-link-new {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: linear-gradient(135deg, #238636 0%, #2ea043 100%);
+  color: white;
+  text-decoration: none;
+  padding: 0.6rem 1rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(35, 134, 54, 0.3);
+}
+
+.github-link-new:hover {
+  background: linear-gradient(135deg, #2ea043 0%, #238636 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(35, 134, 54, 0.4);
+}
+
+/* GitHub Stats Grid */
+.github-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.8rem;
+  margin-bottom: 1.5rem;
+  flex: 1;
+}
+
+.stat-card-new {
+  background: rgba(48, 54, 61, 0.3);
+  border-radius: 12px;
+  padding: 0.8rem;
+  border: 1px solid rgba(48, 54, 61, 0.4);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 80px;
+}
+
+.stat-card-new::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(35, 134, 54, 0.1), rgba(46, 160, 67, 0.1));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.stat-card-new:hover::before {
+  opacity: 1;
+}
+
+.stat-card-new:hover {
+  transform: translateY(-4px) scale(1.05);
+  border-color: rgba(35, 134, 54, 0.5);
+  box-shadow: 0 12px 30px rgba(35, 134, 54, 0.2);
+}
+
+.stat-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  background: linear-gradient(135deg, #238636 0%, #2ea043 100%);
+  border-radius: 6px;
+  margin-bottom: 0.4rem;
+  box-shadow: 0 4px 12px rgba(35, 134, 54, 0.3);
+}
+
+.stat-icon i {
+  color: white;
+  font-size: 0.8rem;
+}
+
+.stat-content {
+  text-align: center;
+}
+
+.stat-number {
+  display: block;
+  color: #f0f6fc;
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 0.3rem;
+  text-shadow: 0 0 10px rgba(240, 246, 252, 0.3);
+  transition: all 0.3s ease;
+}
+
+.stat-label {
+  color: #7d8590;
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.stat-glow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, transparent, rgba(35, 134, 54, 0.1), transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  border-radius: 16px;
+}
+
+.stat-card-new:hover .stat-glow {
+  opacity: 1;
+}
+
+/* GitHub Footer */
+.github-footer {
+  text-align: center;
+  padding-top: 0.8rem;
+  border-top: 1px solid rgba(48, 54, 61, 0.3);
+}
+
+.activity-indicator {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #7d8590;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.activity-dot {
+  width: 8px;
+  height: 8px;
+  background: #2ea043;
+  border-radius: 50%;
+  animation: activityPulse 2s ease-in-out infinite;
+}
+
+/* Animations */
+@keyframes iconPulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.8;
+  }
+}
+
+@keyframes avatarRotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes avatarPulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.2;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.4;
+  }
+}
+
+@keyframes activityPulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.2);
+  }
+}
+
+/* Loading Animation */
+.stat-card-new.loading .stat-number {
+  animation: loadingShimmer 1.5s ease-in-out infinite;
+}
+
+@keyframes loadingShimmer {
+  0% {
+    background: linear-gradient(90deg, #2d3748 25%, #4a5568 50%, #2d3748 75%);
+    background-size: 200% 100%;
+    background-position: -200% 0;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* Ripple Effect */
+.ripple-effect {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: scale(0);
+  animation: ripple 0.6s linear;
+  pointer-events: none;
+}
+
+@keyframes ripple {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+.github-link-new {
+  position: relative;
+  overflow: hidden;
+}
 .contact-info h3 {
   color: #fff;
   font-size: 2rem;
@@ -2546,12 +2780,12 @@ section {
 .contact-details {
   margin-top: 0.2rem;
   display: flex;
-  flex-direction: column;
+    flex-direction: column;
   gap: 1.2rem;
 }
 .contact-item {
   display: flex;
-  align-items: center;
+    align-items: center;
   gap: 1rem;
   font-size: 1.1rem;
   color: #e0e7ef;
@@ -2568,169 +2802,46 @@ section {
 .contact-link:hover {
   color: #60a5fa;
 }
-.github-header {
-  display: flex;
-  align-items: center;
-  gap: 1.2rem;
-}
-.github-avatar {
-  width: 70px;
-  height: 70px;
-  border-radius: 50%;
-  border: 2px solid #3b82f6;
-  object-fit: cover;
-  background: #fff;
-}
-.github-username {
-  color: #fff;
-  font-size: 1.3rem;
-  font-weight: 700;
-  margin-bottom: 0.2rem;
-}
-.github-bio {
-  color: #e0e7ef;
-  font-size: 1rem;
-  font-weight: 400;
-}
-.github-stats-row {
-  display: flex;
-  gap: 2.5rem;
-  margin: 1rem 0 0.5rem 0;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-.github-stat-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.2rem;
-}
-.github-stat-number {
-  color: #fff;
-  font-size: 1.5rem;
-  font-weight: 700;
-}
-.github-stat-label {
-  color: #60a5fa;
-  font-size: 0.9rem;
-  font-weight: 500;
-  text-align: center;
-  white-space: nowrap;
-}
-.github-link-btn {
-  margin-top: 0.5rem;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  background: #3b82f6;
-  color: #fff;
-  border-radius: 12px;
-  padding: 0.7em 1.3em;
-  font-weight: 600;
-  text-decoration: none;
-  font-size: 1rem;
-  transition: background 0.3s;
-}
-.github-link-btn:hover {
-  background: #2563eb;
-  color: #fff;
-}
+
 @media (max-width: 900px) {
   .contact-content {
-    grid-template-columns: 1fr;
-    gap: 2rem;
+    padding: 0 1rem;
   }
-  .contact-github-card, .contact-info {
+  
+  .github-stats-widget {
     min-height: 0;
-    padding: 1.2rem 1rem 1rem 1rem;
-  }
-  .contact-github-card {
-    align-items: center;
-    padding: 1.2rem 0.5rem 1rem 0.5rem;
-  }
-  .github-header {
-    flex-direction: column;
-    gap: 0.5rem;
-    align-items: center;
-    text-align: center;
-  }
-  .github-avatar {
-    width: 56px;
-    height: 56px;
-  }
-  .github-username {
-    font-size: 1.1rem;
-  }
-  .github-bio {
-    font-size: 0.95rem;
-  }
-  .github-stats-row {
-    gap: 1.5rem;
-    flex-direction: row;
-    justify-content: center;
-    margin: 0.7rem 0 0.3rem 0;
+    max-width: 100%;
   }
   
-  .github-stat-item {
-    min-width: 80px;
-  }
-  .github-stat-number {
-    font-size: 1.1rem;
+  .github-card-new {
+    padding: 1.5rem;
+    min-height: 300px;
   }
   
-  .github-stat-label {
-    font-size: 0.8rem;
-  }
-  .github-link-btn {
-    font-size: 0.95rem;
-    padding: 0.6em 1em;
-    border-radius: 10px;
-  }
-}
-@media (max-width: 600px) {
-  .contact-github-card {
-    padding: 1rem 0.5rem 0.7rem 0.5rem;
-  }
-  .github-header {
-    gap: 0.3rem;
-  }
-  .github-avatar {
-    width: 44px;
-    height: 44px;
-  }
-  .github-username {
-    font-size: 1rem;
-  }
-  .github-bio {
-    font-size: 0.9rem;
-  }
-  .github-stats-row {
-    flex-direction: column;
-    align-items: center;
+  .github-stats-grid {
+    grid-template-columns: repeat(2, 1fr);
     gap: 0.8rem;
-    justify-content: center;
   }
   
-  .github-stat-item {
-    min-width: 120px;
-    text-align: center;
+  .stat-card-new {
+    padding: 1rem;
   }
   
-  .github-stat-label {
+  .stat-number {
+    font-size: 1.5rem;
+  }
+  
+  .stat-label {
     font-size: 0.75rem;
   }
-  .github-link-btn {
-    font-size: 0.9rem;
-    padding: 0.5em 0.7em;
-    border-radius: 8px;
-  }
 }
+
 
 /* Social Section */
 .social-section {
     text-align: center;
-    margin-top: 4rem;
-    padding-top: 3rem;
+    margin-top: 2rem;
+    padding-top: 1.5rem;
     position: relative;
     z-index: 2;
 }
@@ -2746,50 +2857,31 @@ section {
     background: linear-gradient(90deg, transparent 0%, rgba(59, 130, 246, 0.3) 50%, transparent 100%);
 }
 
-.social-section h3 {
-    font-size: 1.8rem;
-    font-weight: 600;
-    margin-bottom: 2.5rem;
-    color: #ffffff;
-    position: relative;
-    display: inline-block;
-}
 
-.social-section h3::after {
-    content: '';
-    position: absolute;
-    bottom: -8px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 60px;
-    height: 3px;
-    background: linear-gradient(90deg, #3b82f6, #8b5cf6);
-    border-radius: 2px;
-}
 
 .social-links {
     display: flex;
     justify-content: center;
-    gap: 2.5rem;
+    gap: 1.5rem;
     flex-wrap: wrap;
-    max-width: 600px;
+    max-width: 300px;
     margin: 0 auto;
 }
 
 .social-link {
     display: flex;
-    flex-direction: column;
     align-items: center;
-    gap: 1rem;
-    padding: 2rem 1.5rem;
-    background: rgba(30, 58, 138, 0.55);
-    backdrop-filter: blur(12px);
-    border-radius: 20px;
-    border: 1.5px solid rgba(59, 130, 246, 0.18);
-    box-shadow: 0 8px 32px 0 rgba(31, 58, 138, 0.18);
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.8rem 1.2rem;
+    background: rgba(30, 58, 138, 0.3);
+    backdrop-filter: blur(8px);
+    border-radius: 12px;
+    border: 1px solid rgba(59, 130, 246, 0.2);
+    box-shadow: 0 4px 16px 0 rgba(31, 58, 138, 0.15);
+    transition: all 0.3s ease;
     text-decoration: none;
-    min-width: 140px;
+    min-width: 80px;
     position: relative;
     overflow: hidden;
 }
@@ -2810,18 +2902,18 @@ section {
 }
 
 .social-link:hover {
-    transform: translateY(-8px) scale(1.05);
-    box-shadow: 0 20px 40px 0 rgba(59, 130, 246, 0.25);
-    border-color: rgba(59, 130, 246, 0.4);
-    background: rgba(30, 58, 138, 0.7);
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 8px 20px 0 rgba(59, 130, 246, 0.2);
+    border-color: rgba(59, 130, 246, 0.3);
+    background: rgba(30, 58, 138, 0.5);
 }
 
 .social-link img,
 .social-link i {
-    width: 48px;
-    height: 48px;
-    font-size: 48px;
-    transition: all 0.4s ease;
+    width: 20px;
+    height: 20px;
+    font-size: 20px;
+    transition: all 0.3s ease;
     color: #ffffff;
     opacity: 0.9;
     display: flex;
@@ -2831,85 +2923,61 @@ section {
 
 .social-link:hover img,
 .social-link:hover i {
-    transform: scale(1.2) rotate(5deg);
+    transform: scale(1.1);
     color: #ffffff;
     opacity: 1;
 }
 
-.social-name {
-    font-size: 1rem;
-    font-weight: 500;
-    color: #ffffff;
-    transition: all 0.3s ease;
-    text-align: center;
-}
 
-.social-link:hover .social-name {
-    color: #ffffff;
-    transform: scale(1.05);
-}
 
 /* Responsive Design untuk Social Section */
 @media (max-width: 768px) {
     .social-section {
-        margin-top: 3rem;
-        padding-top: 2rem;
-    }
-    
-    .social-section h3 {
-        font-size: 1.5rem;
-        margin-bottom: 2rem;
+        margin-top: 1.5rem;
+        padding-top: 1rem;
     }
     
     .social-links {
-        gap: 1.5rem;
+        gap: 1rem;
         max-width: 100%;
     }
     
     .social-link {
-        padding: 1.5rem 1rem;
-        min-width: 120px;
+        padding: 0.6rem 1rem;
+        min-width: 70px;
     }
     
     .social-link img,
     .social-link i {
-        width: 40px;
-        height: 40px;
-        font-size: 40px;
-    }
-    
-    .social-name {
-        font-size: 0.9rem;
+        width: 18px;
+        height: 18px;
+        font-size: 18px;
     }
 }
 
 @media (max-width: 480px) {
-    .social-section h3 {
-        font-size: 1.3rem;
+    .social-section {
+        margin-top: 1rem;
+        padding-top: 0.8rem;
     }
     
     .social-links {
-        gap: 1rem;
-        flex-direction: column;
-        align-items: center;
+        gap: 0.8rem;
+        flex-direction: row;
+        justify-content: center;
     }
     
     .social-link {
-        flex-direction: row;
-        padding: 1rem 1.5rem;
-        min-width: 200px;
-        gap: 1rem;
+        padding: 0.5rem 0.8rem;
+        min-width: 60px;
+        gap: 0.3rem;
     }
     
     .social-link img,
     .social-link i {
-        width: 36px;
-        height: 36px;
-        font-size: 36px;
-    }
-    
-    .social-name {
-        font-size: 0.95rem;
+        width: 16px;
+        height: 16px;
+        font-size: 16px;
     }
 }
 
@@ -3010,28 +3078,7 @@ section {
         max-width: 300px;
     }
     
-    .github-card {
-        margin-top: 2rem;
-        max-width: 100%;
-    }
-    
-    .github-widget {
-        margin-top: 0;
-        width: 100%;
-    }
-    
-    .github-avatar {
-        width: 60px;
-        height: 60px;
-    }
-    
-    .github-username {
-        font-size: 1.2rem;
-    }
-    
-    .github-bio {
-        font-size: 0.9rem;
-    }
+
     
     .hero-buttons {
         flex-direction: column;
@@ -3115,13 +3162,17 @@ section {
         display: none;
     }
     
+    .skills-intro {
+        margin-bottom: 2rem;
+    }
+    
     .skills-grid {
         grid-template-columns: 1fr;
-        gap: 2rem;
+        gap: 1.5rem;
     }
     
     .skill-category {
-        margin-bottom: 2rem;
+        margin-bottom: 1.5rem;
     }
     
     .skill-category:hover {
@@ -3179,6 +3230,7 @@ section {
     
     .projects-intro {
         text-align: center;
+        margin-bottom: 1.2rem;
     }
     
     .projects-subtitle {
@@ -3529,7 +3581,7 @@ section {
         gap: 1.5rem;
     }
     
-    .contact-info, .contact-github-card {
+    .contact-info {
         padding: 1.5rem;
         min-height: 400px;
     }
@@ -3596,13 +3648,7 @@ section {
         max-width: 350px;
     }
     
-    .github-widget {
-        justify-content: center;
-        width: 100%;
-        max-width: 400px;
-        margin-left: auto;
-        margin-right: auto;
-    }
+
     
     .hero-buttons {
         flex-direction: column;
@@ -3663,8 +3709,253 @@ section {
         gap: 2rem;
     }
     
-    .contact-info, .contact-github-card {
-        min-height: 450px;
+
+    
+    .github-stats-widget {
+        min-height: 0;
+    }
+    
+    .github-card-new {
+        padding: 1.2rem;
+        border-radius: 20px;
+        min-height: 280px;
+    }
+    
+    .github-header-new {
+        gap: 0.8rem;
+        margin-bottom: 1.2rem;
+    }
+    
+    .github-icon-container {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .github-icon-container i {
+        font-size: 1.2rem;
+    }
+    
+    .github-title h3 {
+        font-size: 1.1rem;
+    }
+    
+    .github-title p {
+        font-size: 0.8rem;
+    }
+    
+    .github-profile {
+        gap: 1rem;
+        margin-bottom: 1.5rem;
+        padding: 0.8rem;
+    }
+    
+    .profile-avatar {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .username {
+        font-size: 1.1rem;
+    }
+    
+    .bio {
+        font-size: 0.9rem;
+        margin-bottom: 0.8rem;
+    }
+    
+    .collaboration-text {
+        font-size: 0.85rem;
+        margin-bottom: 1rem;
+    }
+
+    .contact-details-new {
+        gap: 0.6rem;
+        margin-bottom: 1rem;
+    }
+    
+    .contact-item-new {
+        font-size: 0.85rem;
+        gap: 0.6rem;
+    }
+    
+    .github-title h3 {
+        font-size: 1.1rem;
+    }
+    
+    .github-title p {
+        font-size: 0.8rem;
+    }
+    
+    .github-profile {
+        gap: 1rem;
+        margin-bottom: 1.8rem;
+        padding: 1rem;
+    }
+    
+    .profile-avatar {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .username {
+        font-size: 1.1rem;
+    }
+    
+    .github-link-new {
+        padding: 0.5rem 0.8rem;
+        font-size: 0.8rem;
+    }
+    
+    .github-stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.6rem;
+        margin-bottom: 1.2rem;
+    }
+    
+    .stat-card-new {
+        padding: 0.8rem;
+        min-height: 80px;
+    }
+    
+    .stat-number {
+        font-size: 1.2rem;
+        margin-bottom: 0.3rem;
+    }
+    
+    .stat-label {
+        font-size: 0.7rem;
+    }
+    
+    .github-card-new {
+        min-height: 200px;
+        padding: 1rem;
+    }
+    
+    .github-profile {
+        margin-bottom: 1rem;
+        padding: 0.6rem;
+    }
+    
+    .github-header-new {
+        margin-bottom: 1.2rem;
+    }
+    
+    .github-icon-container {
+        width: 35px;
+        height: 35px;
+    }
+    
+    .github-icon-container i {
+        font-size: 1rem;
+    }
+    
+    .github-title h3 {
+        font-size: 1rem;
+    }
+    
+    .github-title p {
+        font-size: 0.75rem;
+    }
+    
+    .profile-avatar {
+        width: 50px;
+        height: 50px;
+    }
+
+    .username {
+        font-size: 1rem;
+    }
+    
+    .bio {
+        font-size: 0.85rem;
+        margin-bottom: 0.6rem;
+    }
+    
+    .collaboration-text {
+        font-size: 0.8rem;
+        margin-bottom: 0.8rem;
+    }
+    
+    .contact-details-new {
+        gap: 0.5rem;
+        margin-bottom: 0.8rem;
+    }
+    
+    .contact-item-new {
+        font-size: 0.8rem;
+        gap: 0.5rem;
+    }
+    
+    .github-link-new {
+        padding: 0.4rem 0.6rem;
+        font-size: 0.75rem;
+    }
+
+    .github-footer {
+        padding-top: 0.6rem;
+    }
+
+    .activity-indicator {
+        font-size: 0.8rem;
+    }
+    
+    .stat-icon {
+        width: 24px;
+        height: 24px;
+        margin-bottom: 0.3rem;
+    }
+    
+    .stat-icon i {
+        font-size: 0.7rem;
+    }
+    
+    .github-link-new {
+        padding: 0.5rem 0.8rem;
+        font-size: 0.8rem;
+    }
+    
+    .github-stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.6rem;
+        margin-bottom: 1.2rem;
+    }
+    
+    .stat-card-new {
+        padding: 1rem;
+        border-radius: 12px;
+        min-height: 100px;
+    }
+    
+    .stat-icon {
+        width: 35px;
+        height: 35px;
+        margin-bottom: 0.6rem;
+    }
+    
+    .stat-icon i {
+        font-size: 1rem;
+    }
+    
+    .stat-number {
+        font-size: 1.4rem;
+        margin-bottom: 0.2rem;
+    }
+    
+    .stat-label {
+        font-size: 0.7rem;
+    }
+    
+    .github-footer {
+        padding-top: 0.8rem;
+    }
+    
+    .activity-indicator {
+        font-size: 0.8rem;
+    }
+    
+    .activity-dot {
+        width: 6px;
+        height: 6px;
     }
 }
 
@@ -3682,46 +3973,7 @@ section {
     }
 
 
-    .github-card {
-        max-width: 380px;
-        padding: 1.25rem;
-    }
 
-    .github-avatar {
-        width: 50px;
-        height: 50px;
-    }
-
-    .github-username {
-        font-size: 0.9rem;
-    }
-
-    .github-bio {
-        font-size: 0.75rem;
-    }
-
-    .github-icon {
-        font-size: 1.2rem;
-    }
-
-    .github-status {
-        font-size: 0.8rem;
-    }
-    
-    .github-stats-row {
-        flex-direction: column;
-        align-items: center;
-        gap: 0.6rem;
-    }
-    
-    .github-stat-item {
-        min-width: 140px;
-        text-align: center;
-    }
-    
-    .github-stat-label {
-        font-size: 0.7rem;
-    }
 
     .hero-description {
         font-size: 1rem;
@@ -3789,7 +4041,7 @@ section {
     }
     
     .projects-intro {
-        margin-bottom: 1.5rem;
+        margin-bottom: 1rem;
     }
     
     .projects-subtitle {
@@ -3870,6 +4122,10 @@ section {
     
 
 
+    .skills-intro {
+        margin-bottom: 1.5rem;
+    }
+    
     .skills-grid {
         grid-template-columns: 1fr;
         gap: 1rem;
@@ -4222,8 +4478,8 @@ section {
         rgba(20, 20, 45, 0.97) 100%);
     backdrop-filter: blur(20px);
     border: 1px solid rgba(59, 130, 246, 0.08);
-    border-radius: 28px;
-    padding: 2.5rem;
+    border-radius: 20px;
+    padding: 1.5rem;
     box-shadow: 
         0 20px 40px rgba(0, 0, 0, 0.3),
         0 0 0 1px rgba(255, 255, 255, 0.1),
@@ -4233,12 +4489,12 @@ section {
     position: relative;
     overflow: hidden;
     transform-style: preserve-3d;
-    min-height: 320px;
+    min-height: 240px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     width: 100%;
-    max-width: 600px;
+    max-width: 450px;
 }
 
 .project-card-simple::before {
@@ -4303,11 +4559,11 @@ section {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
     flex-shrink: 0;
-    padding: 1rem 1.5rem;
+    padding: 0.6rem 1rem;
     background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(147, 51, 234, 0.1) 100%);
-    border-radius: 20px;
+    border-radius: 14px;
     border: 1px solid rgba(59, 130, 246, 0.2);
     backdrop-filter: blur(10px);
 }
@@ -4315,17 +4571,17 @@ section {
 .card-image-simple {
     position: relative;
     width: 100%;
-    min-height: 120px;
+    min-height: 80px;
     height: auto;
     display: flex;
     align-items: center;
     justify-content: center;
     background: linear-gradient(135deg, #e0e7ff 0%, #f8fafc 100%, transparent 100%);
-    border-radius: 20px;
-    margin-bottom: 1rem;
+    border-radius: 14px;
+    margin-bottom: 0.6rem;
     border: 1.5px solid rgba(59, 130, 246, 0.2);
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.10);
-    padding: 16px 0;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.10);
+    padding: 8px 0;
 }
 
 .card-image-simple img {
@@ -4377,9 +4633,9 @@ section {
 }
 
 .project-title-simple {
-    font-size: 1.25rem;
+    font-size: 1rem;
     font-weight: 700;
-    margin-bottom: 0.75rem;
+    margin-bottom: 0.4rem;
     color: #f8fafc;
     line-height: 1.3;
     background: linear-gradient(135deg, #ffffff, #e5e7eb, #d1d5db);
@@ -4392,15 +4648,15 @@ section {
 
 .project-description-simple {
     color: #cbd5e1;
-    line-height: 1.5;
-    margin-bottom: 0.75rem;
-    font-size: 0.85rem;
+    line-height: 1.4;
+    margin-bottom: 0.4rem;
+    font-size: 0.75rem;
     opacity: 0.9;
     flex: 1;
     overflow: hidden;
     display: -webkit-box;
-    -webkit-line-clamp: 3;
-    line-clamp: 3;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
     -webkit-box-orient: vertical;
     word-wrap: break-word;
     hyphens: auto;
@@ -4409,18 +4665,18 @@ section {
 .project-tech-simple {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.5rem;
-    margin-bottom: 1rem;
+    gap: 0.3rem;
+    margin-bottom: 0.6rem;
     flex-shrink: 0;
 }
 
 .tech-tag-simple {
-    padding: 0.5rem 1rem;
+    padding: 0.3rem 0.6rem;
     background: rgba(59, 130, 246, 0.12);
     border: 1px solid rgba(59, 130, 246, 0.25);
-    border-radius: 25px;
+    border-radius: 16px;
     color: #3b82f6;
-    font-size: 0.875rem;
+    font-size: 0.75rem;
     font-weight: 500;
     transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     position: relative;
@@ -4452,7 +4708,7 @@ section {
 
 .project-links-simple {
     display: flex;
-    gap: 1rem;
+    gap: 0.6rem;
     flex-wrap: wrap;
     flex-shrink: 0;
     margin-top: auto;
@@ -4488,11 +4744,11 @@ section {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 0.5em;
-  padding: 0.9em 1.4em;
-  min-width: 120px;
-  min-height: 44px;
-  font-size: var(--size, 1rem);
+  gap: 0.3em;
+  padding: 0.6em 1em;
+  min-width: 90px;
+  min-height: 34px;
+  font-size: var(--size, 0.85rem);
   font-weight: 500;
   color: var(--btn-bg-color);
   background-image: linear-gradient(
@@ -4567,14 +4823,14 @@ section {
 .project-badge-simple {
     display: flex;
     align-items: center;
-    gap: 0.75rem;
-    padding: 0.875rem 1.75rem;
+    gap: 0.5rem;
+    padding: 0.6rem 1.2rem;
     background: linear-gradient(135deg, #3b82f6, #8b5cf6, #10b981);
     color: white;
-    border-radius: 35px;
-    font-size: 0.95rem;
+    border-radius: 25px;
+    font-size: 0.85rem;
     font-weight: 600;
-    box-shadow: 0 8px 25px rgba(59, 130, 246, 0.4);
+    box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
     position: relative;
     overflow: hidden;
     transition: all 0.4s ease;
@@ -4635,13 +4891,13 @@ section {
 .project-status-simple {
     display: flex;
     align-items: center;
-    gap: 0.75rem;
+    gap: 0.5rem;
     color: #10b981;
-    font-size: 0.95rem;
+    font-size: 0.85rem;
     font-weight: 500;
-    padding: 0.625rem 1.25rem;
+    padding: 0.5rem 1rem;
     background: rgba(16, 185, 129, 0.12);
-    border-radius: 25px;
+    border-radius: 20px;
     border: 1px solid rgba(16, 185, 129, 0.25);
     backdrop-filter: blur(10px);
     flex: 1;
@@ -4824,7 +5080,6 @@ section {
     align-items: center;
     justify-content: center;
     gap: 3.5rem;
-    margin-top: 4rem;
 }
 
 .nav-btn-simple {
@@ -5113,16 +5368,16 @@ section {
         z-index: 3;
     }
     .project-card-simple {
-        padding: 0.7rem 0.4rem;
-        min-height: 180px;
+        padding: 1.5rem;
+        min-height: 140px;
         max-width: 100%;
-        border-radius: 12px;
-        box-shadow: 0 1px 6px rgba(0,0,0,0.07);
+        border-radius: 8px;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.07);
     }
     .card-header-simple {
         flex-direction: column;
         gap: 0.4rem;
-        padding: 0.4rem 0.4rem;
+        padding: 0.6rem 0.8rem;
         margin-bottom: 0.7rem;
     }
     .card-image-simple {
@@ -5133,21 +5388,25 @@ section {
     .project-title-simple {
         font-size: 0.95rem;
         margin-bottom: 0.4rem;
+        padding: 0 0.2rem;
     }
     .project-description-simple {
         font-size: 0.8rem;
         margin-bottom: 0.7rem;
         line-height: 1.4;
+        padding: 0 0.2rem;
     }
     .project-tech-simple {
         gap: 0.2rem;
         margin-bottom: 0.7rem;
+        padding: 0 0.2rem;
     }
     .project-links-simple {
         gap: 0.4rem;
         flex-direction: column;
         align-items: stretch;
         margin-top: 0.4rem;
+        padding: 0 0.2rem;
     }
     .btn-project {
         min-width: 80px;
@@ -5215,40 +5474,44 @@ section {
     }
     
     .project-card-simple {
-        padding: 1rem;
-        min-height: 400px;
+        padding: 0.8rem 0.6rem;
+        min-height: 250px;
     }
     
     .card-image-simple {
-        height: 80px;
-        margin-bottom: 0.5rem;
+        height: 10px;
+        margin-bottom: 0.3rem;
     }
     
     .project-title-simple {
-        font-size: 1.1rem;
-        margin-bottom: 1rem;
+        font-size: 0.95rem;
+        margin-bottom: 0.6rem;
+        padding: 0 0.3rem;
     }
     
     .project-description-simple {
-        font-size: 0.9rem;
-        margin-bottom: 1.5rem;
-        line-height: 1.6;
-        -webkit-line-clamp: 3;
-    line-clamp: 3;
+        font-size: 0.8rem;
+        margin-bottom: 0.8rem;
+        line-height: 1.4;
+        -webkit-line-clamp: 2;
+        line-clamp: 2;
+        padding: 0 0.3rem;
     }
     
     .project-tech-simple {
-        gap: 0.5rem;
-        margin-bottom: 1.5rem;
+        gap: 0.3rem;
+        margin-bottom: 0.8rem;
+        padding: 0 0.3rem;
     }
     
     .tech-tag-simple {
-        padding: 0.375rem 0.75rem;
-        font-size: 0.8rem;
+        padding: 0.25rem 0.5rem;
+        font-size: 0.7rem;
     }
     
     .project-links-simple {
-        gap: 1rem;
+        gap: 0.6rem;
+        padding: 0 0.3rem;
     }
     
     

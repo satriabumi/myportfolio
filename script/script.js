@@ -320,9 +320,9 @@ const statsObserver = new IntersectionObserver((entries) => {
         if (entry.isIntersecting) {
             const stats = entry.target.querySelectorAll('.stat-number');
             stats.forEach(stat => {
-                
+                // Skip elements that don't contain numeric values (like "Resume")
                 const text = stat.textContent.replace('+', '');
-                if (!isNaN(parseFloat(text))) {
+                if (!isNaN(parseFloat(text)) && parseFloat(text) > 0) {
                     const target = parseFloat(text);
                     animateCounter(stat, target);
                 }
@@ -338,16 +338,16 @@ if (aboutStats) {
 }
 
 // tambahkan CSS untuk keadaan loaded
-// GitHub API integration
-async function loadGitHubStats() {
+
+// New GitHub Statistics Widget
+async function loadGitHubStatsNew() {
     try {
         const username = 'satriabumi';
         
         // Add loading animation
-        const statNumbers = document.querySelectorAll('.stat-number');
-        statNumbers.forEach(stat => {
-            stat.style.opacity = '0.5';
-            stat.textContent = '...';
+        const statCards = document.querySelectorAll('.stat-card-new');
+        statCards.forEach(card => {
+            card.classList.add('loading');
         });
         
         // Add timeout to prevent hanging
@@ -370,8 +370,8 @@ async function loadGitHubStats() {
         const userData = await response.json();
         
         // Animate stats update
-        await animateStatUpdate('repo-count', userData.public_repos || 0);
-        await animateStatUpdate('followers', userData.followers || 0);
+        await animateStatUpdateNew('repo-count-new', userData.public_repos || 0);
+        await animateStatUpdateNew('followers-new', userData.followers || 0);
         
         // Load repositories to get total stars
         const reposResponse = await fetch(`https://api.github.com/users/${username}/repos?sort=stars&per_page=100`, {
@@ -383,33 +383,49 @@ async function loadGitHubStats() {
         if (reposResponse.ok) {
             const repos = await reposResponse.json();
             const totalStars = repos.reduce((sum, repo) => sum + (repo.stargazers_count || 0), 0);
-            await animateStatUpdate('stars', totalStars);
+            await animateStatUpdateNew('stars-new', totalStars);
         } else {
-            // If repos API fails, set stars to 0
-            await animateStatUpdate('stars', 0);
+            await animateStatUpdateNew('stars-new', 0);
         }
+        
+        // Estimate commits (GitHub API doesn't provide this directly)
+        const estimatedCommits = Math.floor((userData.public_repos || 0) * 15);
+        await animateStatUpdateNew('commits-new', estimatedCommits);
+        
+        // Remove loading animation
+        statCards.forEach(card => {
+            card.classList.remove('loading');
+        });
         
     } catch (error) {
         console.error('Error loading GitHub stats:', error);
         
         // Fallback data if API fails
-        await animateStatUpdate('repo-count', 15);
-        await animateStatUpdate('followers', 25);
-        await animateStatUpdate('stars', 45);
+        await animateStatUpdateNew('repo-count-new', 15);
+        await animateStatUpdateNew('followers-new', 25);
+        await animateStatUpdateNew('stars-new', 45);
+        await animateStatUpdateNew('commits-new', 225);
+        
+        // Remove loading animation
+        const statCards = document.querySelectorAll('.stat-card-new');
+        statCards.forEach(card => {
+            card.classList.remove('loading');
+        });
     }
 }
 
-async function animateStatUpdate(elementId, targetValue) {
+async function animateStatUpdateNew(elementId, targetValue) {
     const element = document.getElementById(elementId);
     if (!element) return;
     
-    element.style.opacity = '1';
-    element.textContent = '0';
-    
-    const duration = 1500;
-    const steps = 50;
+    const duration = 2000;
+    const steps = 60;
     const increment = targetValue / steps;
     let current = 0;
+    
+    // Add bounce effect
+    element.style.transform = 'scale(1.1)';
+    element.style.color = '#2ea043';
     
     for (let i = 0; i < steps; i++) {
         current += increment;
@@ -418,33 +434,51 @@ async function animateStatUpdate(elementId, targetValue) {
     }
     
     element.textContent = targetValue;
-    element.style.opacity = '1';
+    
+    // Reset styles
+    setTimeout(() => {
+        element.style.transform = 'scale(1)';
+        element.style.color = '#f0f6fc';
+    }, 300);
 }
 
 // Load GitHub stats when page loads
 document.addEventListener('DOMContentLoaded', () => {
-    loadGitHubStats();
+    loadGitHubStatsNew();
     
-    // Add click handler for GitHub button
-    const githubButton = document.querySelector('.github-controls');
-    if (githubButton) {
-        githubButton.addEventListener('click', (e) => {
-            e.preventDefault();
-            window.open('https://github.com/satriabumi', '_blank');
-        });
-    }
-    
-    // Add animation to stat items
-    const statItems = document.querySelectorAll('.stat-item');
-    statItems.forEach((item, index) => {
-        item.addEventListener('mouseenter', () => {
-            item.style.transform = 'translateY(-3px) scale(1.05)';
+    // Add hover effects for stat cards
+    const statCards = document.querySelectorAll('.stat-card-new');
+    statCards.forEach(card => {
+        card.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-4px) scale(1.05)';
         });
         
-        item.addEventListener('mouseleave', () => {
-            item.style.transform = 'translateY(0) scale(1)';
+        card.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateY(0) scale(1)';
+        });
+        
+        // Add click effect
+        card.addEventListener('click', function() {
+            this.style.transform = 'scale(0.95)';
+            setTimeout(() => {
+                this.style.transform = 'translateY(-4px) scale(1.05)';
+            }, 150);
         });
     });
+    
+    // Add ripple effect to GitHub link
+    const githubLink = document.querySelector('.github-link-new');
+    if (githubLink) {
+        githubLink.addEventListener('click', function(e) {
+            const ripple = document.createElement('span');
+            ripple.classList.add('ripple-effect');
+            this.appendChild(ripple);
+            
+            setTimeout(() => {
+                ripple.remove();
+            }, 600);
+        });
+    }
 });
 
 // Skill categories interaction - Only one card open at a time
