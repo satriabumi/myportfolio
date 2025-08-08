@@ -35,7 +35,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// link navigasi aktif berdasarkan posisi scroll
+// link navigasi aktif berdasarkan posisi scroll dengan optimasi
 function updateActiveNavLink() {
     const sections = document.querySelectorAll('section[id]');
     const navLinks = document.querySelectorAll('.nav-link');
@@ -57,10 +57,25 @@ function updateActiveNavLink() {
     });
 }
 
-window.addEventListener('scroll', updateActiveNavLink);
+// Throttle function untuk optimasi scroll event
+function throttle(func, delay) {
+    let lastCall = 0;
+    return function(...args) {
+        const now = new Date().getTime();
+        if (now - lastCall < delay) {
+            return;
+        }
+        lastCall = now;
+        return func(...args);
+    };
+}
 
-// perubahan latar belakang navbar saat scroll
-window.addEventListener('scroll', () => {
+// Menggunakan throttled scroll handler untuk performa lebih baik
+const throttledUpdateActiveNavLink = throttle(updateActiveNavLink, 100);
+window.addEventListener('scroll', throttledUpdateActiveNavLink);
+
+// perubahan latar belakang navbar saat scroll dengan throttling
+const updateNavbarBackground = () => {
     const navbar = document.querySelector('.navbar');
     if (window.scrollY > 100) {
         navbar.style.background = 'rgba(15, 15, 35, 0.98)';
@@ -71,7 +86,9 @@ window.addEventListener('scroll', () => {
         navbar.style.boxShadow = '0 4px 30px rgba(0, 0, 0, 0.3)';
         navbar.style.borderBottom = '1px solid rgba(59, 130, 246, 0.2)';
     }
-});
+};
+const throttledUpdateNavbarBackground = throttle(updateNavbarBackground, 100);
+window.addEventListener('scroll', throttledUpdateNavbarBackground);
 
 // animasi scroll
 const observerOptions = {
@@ -120,15 +137,16 @@ window.addEventListener('load', () => {
     }
 });
 
-// efek parallax untuk bagian hero
-window.addEventListener('scroll', () => {
+// efek parallax untuk bagian hero dengan throttling
+const updateParallaxEffects = () => {
     const scrolled = window.pageYOffset;
     const hero = document.querySelector('.hero');
     const profilePhoto = document.querySelector('.profile-photo');
     
     if (hero && profilePhoto) {
+        // Menggunakan transform: translate3d untuk hardware acceleration
         const rate = scrolled * -0.5;
-        profilePhoto.style.transform = `translateY(${rate}px)`;
+        profilePhoto.style.transform = `translate3d(0, ${rate}px, 0)`;
     }
     
     // Efek parallax untuk elemen latar belakang bagian about
@@ -143,36 +161,50 @@ window.addEventListener('scroll', () => {
         if (aboutScrolled > 0 && aboutScrolled < aboutHeight) {
             floatingCircles.forEach((circle, index) => {
                 const rate = aboutScrolled * (0.1 + index * 0.05);
-                circle.style.transform = `translateY(${rate}px) rotate(${rate * 0.5}deg)`;
+                // Menggunakan transform: translate3d untuk hardware acceleration
+                circle.style.transform = `translate3d(0, ${rate}px, 0) rotate(${rate * 0.5}deg)`;
             });
         }
     }
-});
+};
+const throttledParallaxEffects = throttle(updateParallaxEffects, 16); // ~60fps
+window.addEventListener('scroll', throttledParallaxEffects);
 
-// tambahkan animasi loading
+// tambahkan animasi loading - dengan optimasi performance
 window.addEventListener('load', () => {
-    document.body.classList.add('loaded');
-    
-    // Tambahkan delay animasi avatar
-    const avatar = document.querySelector('.avatar-container');
-    if (avatar) {
-        avatar.style.opacity = '0';
-        avatar.style.transform = 'scale(0.8)';
-        setTimeout(() => {
-            avatar.style.transition = 'all 0.8s ease';
-            avatar.style.opacity = '1';
-            avatar.style.transform = 'scale(1)';
-        }, 500);
-    }
-    
-    // Tambahkan animasi partikel
-    const particles = document.querySelectorAll('.avatar-particles span');
-    particles.forEach((particle, index) => {
-        particle.style.opacity = '0';
-        setTimeout(() => {
-            particle.style.transition = 'opacity 0.6s ease';
-            particle.style.opacity = '1';
-        }, 1000 + (index * 200));
+    // Gunakan requestAnimationFrame untuk animasi yang lebih efisien
+    requestAnimationFrame(() => {
+        document.body.classList.add('loaded');
+        
+        // Tambahkan delay animasi avatar dengan requestAnimationFrame
+        const avatar = document.querySelector('.avatar-container');
+        if (avatar) {
+            avatar.style.opacity = '0';
+            avatar.style.transform = 'scale(0.8)';
+            requestAnimationFrame(() => {
+                setTimeout(() => {
+                    avatar.style.transition = 'all 0.8s ease';
+                    avatar.style.opacity = '1';
+                    avatar.style.transform = 'scale(1)';
+                }, 500);
+            });
+        }
+        
+        // Tambahkan animasi partikel dengan batching untuk kinerja lebih baik
+        const particles = document.querySelectorAll('.avatar-particles span');
+        if (particles.length) {
+            // Batch particles into groups for better performance
+            const batchSize = 5;
+            for (let i = 0; i < particles.length; i += batchSize) {
+                const batch = Array.from(particles).slice(i, i + batchSize);
+                setTimeout(() => {
+                    batch.forEach(particle => {
+                        particle.style.transition = 'opacity 0.6s ease';
+                        particle.style.opacity = '1';
+                    });
+                }, 1000 + (i * 40));
+            }
+        }
     });
 });
 
@@ -310,49 +342,109 @@ if (aboutStats) {
 async function loadGitHubStats() {
     try {
         const username = 'satriabumi';
-        const response = await fetch(`https://api.github.com/users/${username}`);
+        
+        // Add loading animation
+        const statNumbers = document.querySelectorAll('.stat-number');
+        statNumbers.forEach(stat => {
+            stat.style.opacity = '0.5';
+            stat.textContent = '...';
+        });
+        
+        // Add timeout to prevent hanging
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), 10000);
+        
+        const response = await fetch(`https://api.github.com/users/${username}`, {
+            signal: controller.signal,
+            headers: {
+                'Accept': 'application/vnd.github.v3+json'
+            }
+        });
+        
+        clearTimeout(timeoutId);
         
         if (!response.ok) {
-            throw new Error('GitHub API request failed');
+            throw new Error(`GitHub API request failed: ${response.status}`);
         }
         
         const userData = await response.json();
         
-        // Update user stats
-        document.getElementById('repo-count').textContent = userData.public_repos || 0;
-        document.getElementById('followers').textContent = userData.followers || 0;
+        // Animate stats update
+        await animateStatUpdate('repo-count', userData.public_repos || 0);
+        await animateStatUpdate('followers', userData.followers || 0);
         
         // Load repositories to get total stars
-        const reposResponse = await fetch(`https://api.github.com/users/${username}/repos?sort=stars&per_page=100`);
+        const reposResponse = await fetch(`https://api.github.com/users/${username}/repos?sort=stars&per_page=100`, {
+            headers: {
+                'Accept': 'application/vnd.github.v3+json'
+            }
+        });
+        
         if (reposResponse.ok) {
             const repos = await reposResponse.json();
             const totalStars = repos.reduce((sum, repo) => sum + (repo.stargazers_count || 0), 0);
-            document.getElementById('stars').textContent = totalStars;
+            await animateStatUpdate('stars', totalStars);
+        } else {
+            // If repos API fails, set stars to 0
+            await animateStatUpdate('stars', 0);
         }
-        
-
         
     } catch (error) {
         console.error('Error loading GitHub stats:', error);
         
         // Fallback data if API fails
-        document.getElementById('repo-count').textContent = '15';
-        document.getElementById('followers').textContent = '25';
-        document.getElementById('stars').textContent = '45';
+        await animateStatUpdate('repo-count', 15);
+        await animateStatUpdate('followers', 25);
+        await animateStatUpdate('stars', 45);
     }
+}
+
+async function animateStatUpdate(elementId, targetValue) {
+    const element = document.getElementById(elementId);
+    if (!element) return;
+    
+    element.style.opacity = '1';
+    element.textContent = '0';
+    
+    const duration = 1500;
+    const steps = 50;
+    const increment = targetValue / steps;
+    let current = 0;
+    
+    for (let i = 0; i < steps; i++) {
+        current += increment;
+        element.textContent = Math.floor(current);
+        await new Promise(resolve => setTimeout(resolve, duration / steps));
+    }
+    
+    element.textContent = targetValue;
+    element.style.opacity = '1';
 }
 
 // Load GitHub stats when page loads
 document.addEventListener('DOMContentLoaded', () => {
     loadGitHubStats();
     
-    // Add click handler only for GitHub button
+    // Add click handler for GitHub button
     const githubButton = document.querySelector('.github-controls');
     if (githubButton) {
-        githubButton.addEventListener('click', () => {
+        githubButton.addEventListener('click', (e) => {
+            e.preventDefault();
             window.open('https://github.com/satriabumi', '_blank');
         });
     }
+    
+    // Add animation to stat items
+    const statItems = document.querySelectorAll('.stat-item');
+    statItems.forEach((item, index) => {
+        item.addEventListener('mouseenter', () => {
+            item.style.transform = 'translateY(-3px) scale(1.05)';
+        });
+        
+        item.addEventListener('mouseleave', () => {
+            item.style.transform = 'translateY(0) scale(1)';
+        });
+    });
 });
 
 // Skill categories interaction - Only one card open at a time
