@@ -39,9 +39,13 @@ class ResponsiveCarousel {
         this.bindEvents();
         this.startAutoPlay();
         
-        // Handle window resize
+        // Handle window resize with debounce
+        let resizeTimeout;
         window.addEventListener('resize', () => {
-            this.handleResize();
+            clearTimeout(resizeTimeout);
+            resizeTimeout = setTimeout(() => {
+                this.handleResize();
+            }, 250);
         });
     }
 
@@ -61,12 +65,54 @@ class ResponsiveCarousel {
         this.setResponsiveBreakpoints();
         
         if (oldSlidesPerView !== this.slidesPerView) {
-            this.updateCarousel();
+            // Reset current index to prevent out of bounds
+            if (this.currentIndex >= this.totalSlides) {
+                this.currentIndex = 0;
+            }
+            
+            // Temporarily disable transitions during resize
+            this.slides.forEach(slide => {
+                slide.style.transition = 'none';
+            });
+            
+            // Force reflow
+            this.carouselViewport.offsetHeight;
+            
+            // Reinitialize state
+            this.setInitialState();
+            
+            // Re-enable transitions after a short delay
+            setTimeout(() => {
+                this.slides.forEach(slide => {
+                    if (this.slidesPerView === 3) {
+                        slide.style.transition = 'all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1)';
+                    } else {
+                        slide.style.transition = 'all 0.5s ease-in-out';
+                    }
+                });
+            }, 50);
         }
     }
 
     setInitialState() {
         this.slides.forEach((slide, index) => {
+            // Reset all styles first
+            slide.style.transition = '';
+            slide.style.position = '';
+            slide.style.width = '';
+            slide.style.maxWidth = '';
+            slide.style.left = '';
+            slide.style.top = '';
+            slide.style.transformStyle = '';
+            slide.style.transform = '';
+            slide.style.opacity = '';
+            slide.style.zIndex = '';
+            slide.style.filter = '';
+            slide.style.pointerEvents = '';
+            
+            // Force reflow
+            slide.offsetHeight;
+            
             if (this.slidesPerView === 3) {
                 // Desktop 3D mode
                 slide.style.transition = 'all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1)';
@@ -210,6 +256,12 @@ class ResponsiveCarousel {
                 // Desktop 3D mode
                 slide.setAttribute('data-index', slideIndex);
                 
+                // Ensure proper positioning for desktop mode
+                slide.style.left = '50%';
+                slide.style.width = '100%';
+                slide.style.maxWidth = '750px';
+                slide.style.transformStyle = 'preserve-3d';
+                
                 if (slideIndex === 0) {
                     slide.classList.add('active');
                     slide.style.transform = 'translateX(-50%) translateZ(0) rotateY(0deg)';
@@ -219,17 +271,17 @@ class ResponsiveCarousel {
                     slide.style.pointerEvents = 'all';
                 } else if (slideIndex === 1) {
                     slide.classList.remove('active');
-                    slide.style.transform = 'translateX(25%) translateZ(-200px) rotateY(25deg)';
-                    slide.style.opacity = '0.8';
+                    slide.style.transform = 'translateX(15%) translateZ(-150px) rotateY(15deg)';
+                    slide.style.opacity = '0.9';
                     slide.style.zIndex = '2';
-                    slide.style.filter = 'blur(1px)';
+                    slide.style.filter = 'blur(0.5px)';
                     slide.style.pointerEvents = 'all';
                 } else if (slideIndex === 2) {
                     slide.classList.remove('active');
-                    slide.style.transform = 'translateX(-125%) translateZ(-200px) rotateY(-25deg)';
-                    slide.style.opacity = '0.8';
+                    slide.style.transform = 'translateX(-115%) translateZ(-150px) rotateY(-15deg)';
+                    slide.style.opacity = '0.9';
                     slide.style.zIndex = '1';
-                    slide.style.filter = 'blur(1px)';
+                    slide.style.filter = 'blur(0.5px)';
                     slide.style.pointerEvents = 'all';
                 } else {
                     slide.classList.remove('active');
@@ -239,6 +291,12 @@ class ResponsiveCarousel {
             } else {
                 // Mobile/Tablet responsive mode
                 slide.removeAttribute('data-index');
+                
+                // Ensure proper positioning for mobile/tablet mode
+                slide.style.left = '0';
+                slide.style.width = `${100 / this.slidesPerView}%`;
+                slide.style.maxWidth = 'none';
+                slide.style.transformStyle = 'flat';
                 
                 // Calculate position based on slides per view
                 let position = 0;
