@@ -715,6 +715,7 @@ body {
         gap: 1rem;
         min-height: calc(100vh - 160px);
         padding: 1rem 0;
+        align-items: center;
     }
 }
 
@@ -784,6 +785,43 @@ body {
     }
 }
 
+/* IMPORTANT: These laptop responsive styles are OLD and have been replaced. 
+   Please use the unified media queries below for laptop styling.
+   This section is kept for reference only and does not affect the styling anymore. */
+@media (max-width: 480px) {
+    .laptop {
+        /* Force shrink & perfect horizontal centering */
+        transform: translate(-50%, 0) scale(.58) !important;
+        left: 50% !important;
+        margin: 0 auto !important;
+        width: auto;
+        pointer-events: none;
+    }
+    .screen { /* keep proportion a bit narrower so it doesn’t overflow */
+        width: 210px !important;
+        height: 132px !important;
+    }
+    .text { font-size: 1.75rem !important; }
+}
+@media (max-width: 400px) {
+    .laptop {
+        transform: translate(-50%, 0) scale(.52) !important;
+    }
+}
+@media (max-width: 360px) {
+    .laptop {
+        transform: translate(-50%, 0) scale(.48) !important;
+    }
+    .screen { width: 200px !important; height: 125px !important; }
+}
+@media (max-width: 320px) {
+    .laptop {
+        transform: translate(-50%, 0) scale(.44) !important;
+    }
+    .screen { width: 185px !important; height: 118px !important; }
+    .text { font-size: 1.45rem !important; }
+}
+
 @media (max-width: 320px) {
     .hero-left {
         width: 100%;
@@ -803,117 +841,93 @@ body {
     }
 }
 
-/* Laptop Animation */
+/* Laptop Base (desktop & tablet) */
 .laptop {
-    transform: scale(0.8);
-    transform-origin: center;
     position: relative;
     z-index: 1;
     pointer-events: none;
-    margin: 0 auto !important;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-}
-
-@media (max-width: 768px) {
-    .laptop {
-        transform: scale(0.65);
-        margin: 0 auto;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        width: 100%;
-        max-width: none;
-        transform-origin: center;
-    }
-}
-
-@media (max-width: 685px) {
-    .laptop {
-        transform: scale(0.8);
-        margin: 0 auto;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        width: 100%;
-        max-width: none;
-        transform-origin: center;
-    }
-}
-
-/* Media query untuk tablet landscape - perbaikan gap */
-@media (max-width: 900px) and (min-width: 769px) {
-    .laptop {
-        transform: scale(0.65);
-        margin: 0 auto;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        width: 100%;
-        transform-origin: center;
-    }
-}
-
-@media (max-width: 480px) {
-    .laptop {
-        transform: scale(1);
-        margin: 0 auto;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        width: 100%;
-        transform-origin: center;
-    }
-}
-
-@media (max-width: 320px) {
-    .laptop {
-        transform: scale(1);
-        margin: 0 auto;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        width: 100%;
-        transform-origin: center;
-    }
-}
-
-.screen {
-    border-radius: 20px;
-    box-shadow: inset 0 0 0 2px #c8cacb, inset 0 0 0 10px #000;
-    height: 318px;
-    width: 518px;
     margin: 0 auto;
-    padding: 9px 9px 23px 9px;
+    width: auto;
+    transform-origin: center bottom;
+    left: 0;
+    right: 0;
+}
+@media (min-width: 901px) {
+    .laptop { transform: scale(.85); }
+}
+@media (max-width: 900px) and (min-width: 769px) {
+    .laptop { transform: scale(.75); }
+}
+@media (max-width: 768px) and (min-width: 601px) {
+    .laptop { transform: scale(.68); }
+}
+@media (max-width: 600px) and (min-width: 481px) {
+    .laptop { transform: scale(.64); }
+}
+
+/* Mobile (align same look as 481-600px) */
+@media (max-width: 480px) {
+    .hero { padding-top: 5rem; padding-bottom: 2.5rem; }
+    .hero-right { margin-top: 1.6rem; position: relative; display: flex; justify-content: center; align-items: center; }
+    .laptop { 
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%) scale(.64)!important;
+        margin: 0;
+    }
+    /* Keep animation & proportions from desktop/tablet, only shrink scale */
+    .screen { 
+        width: 320px!important; 
+        height: 200px!important; 
+        transform-style: preserve-3d!important;
+        animation: open 5s ease-in-out infinite alternate!important;
+    }
+    .text { font-size: 2.4rem!important; }
+}
+@media (max-width: 400px) {
+    .laptop { 
+        transform: translateX(-50%) scale(.6)!important;
+    }
+    .screen { width: 300px!important; height: 188px!important; }
+    .keyboard { width: 350px; height: 17px; }
+    .text { font-size: 2.2rem!important; }
+}
+@media (max-width: 360px) {
+    .laptop { 
+        transform: translateX(-50%) scale(.56)!important;
+    }
+    .screen { width: 280px!important; height: 176px!important; }
+    .keyboard { width: 330px; height: 16px; }
+    .text { font-size: 2rem!important; }
+}
+@media (max-width: 320px) {
+    .laptop { 
+        transform: translateX(-50%) scale(.52)!important;
+    }
+    .screen { width: 260px!important; height: 164px!important; }
+    .keyboard { width: 300px; height: 15px; }
+    .text { font-size: 1.85rem!important; }
+}
+
+/* Screen base (desktop) */
+.screen {
+    border-radius: 22px;
+    box-shadow: inset 0 0 0 2px #c8cacb, inset 0 0 0 10px #000;
+    height: 340px;
+    width: 560px;
+    margin: 0 auto;
+    padding: 14px 14px 30px 14px;
     position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
     left: 0;
     right: 0;
-    background-image: linear-gradient(
-        15deg,
-        #004d40 0%,    /* Dark teal */
-        #00695c 15%,   /* Teal gelap */
-        #00796b 30%,   /* Teal kehijauan */
-        #00897b 45%,   /* Teal agak terang */
-        #0277bd 60%,   /* Biru gelap terang */
-        #01579b 75%,   /* Deep blue */
-        #0d47a1 90%,   /* Navy blue terang */
-        #1a237e 100%   /* Indigo tua */
-    );
+    background-image: linear-gradient(15deg,#004d40 0%,#00695c 12%,#00796b 25%,#00897b 40%,#0277bd 55%,#01579b 70%,#0d47a1 85%,#1a237e 100%);
     transform-style: preserve-3d;
-    transform: perspective(1900px) rotateX(-88.5deg);
+    transform: perspective(1600px) rotateX(-55deg);
     transform-origin: 50% 100%;
-    animation: open 4s infinite alternate;
+    animation: open 5s ease-in-out infinite alternate;
 }
 
 /* Media queries untuk screen responsif */
@@ -931,23 +945,14 @@ body {
     }
 }
 
-@media (max-width: 480px) {
-    .screen {
-        height: 140px;
-        width: 220px;
-    }
-}
-
-@media (max-width: 320px) {
-    .screen {
-        height: 120px;
-        width: 190px;
-    }
-}
+/* Removed old mobile screen sizes (handled in unified overrides) */
 
 @keyframes open {
     0% {
         transform: perspective(1900px) rotateX(-88.5deg);
+    }
+    50% {
+        transform: perspective(1500px) rotateX(-45deg);
     }
     100% {
         transform: perspective(1000px) rotateX(0deg);
@@ -966,13 +971,12 @@ body {
 }
 
 .text {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-        Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-    color: #fff;
-    letter-spacing: 1px;
-    text-shadow: 0 0 5px #fff;
-    font-size: 5rem;
-    font-weight: 500;
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Open Sans","Helvetica Neue",sans-serif;
+    color:#fff;
+    letter-spacing:1px;
+    text-shadow:0 0 6px rgba(255,255,255,.9),0 0 18px rgba(59,130,246,.55);
+    font-size:5.2rem;
+    font-weight:600;
 }
 
 /* Media queries untuk text responsif */
@@ -988,27 +992,10 @@ body {
     }
 }
 
-@media (max-width: 480px) {
-    .text {
-        font-size: 2rem;
-    }
-}
-
-@media (max-width: 320px) {
-    .text {
-        font-size: 1.5rem;
-    }
-}
+/* Old tiny text breakpoints removed; mobile handled in unified overrides */
 
 .header {
-    width: 100px;
-    height: 12px;
-    position: absolute;
-    background-color: #000;
-    top: 10px;
-    left: 50%;
-    transform: translate(-50%, -0%);
-    border-radius: 0 0 6px 6px;
+    width:110px; height:14px; position:absolute; background:#000; top:12px; left:50%; transform:translate(-50%,0); border-radius:0 0 8px 8px; box-shadow:0 2px 4px -1px rgba(0,0,0,.6);
 }
 
 /* Media queries untuk header responsif */
@@ -1028,21 +1015,7 @@ body {
     }
 }
 
-@media (max-width: 480px) {
-    .header {
-        width: 48px;
-        height: 6px;
-        top: 5px;
-    }
-}
-
-@media (max-width: 320px) {
-    .header {
-        width: 42px;
-        height: 5px;
-        top: 4px;
-    }
-}
+/* Old header mobile sizes removed; now in unified overrides */
 
 .screen::after {
     background: linear-gradient(to bottom, #272727, #0d0d0d);
@@ -1118,8 +1091,8 @@ body {
 
 @media (max-width: 480px) {
     .keyboard {
-        width: 240px;
-        height: 15px;
+        width: 380px;
+        height: 18px;
     }
 }
 
@@ -1670,8 +1643,26 @@ section {
     
     .about-avatar {
         order: -1;
-        margin-bottom: 1rem;
+        margin-top: 0.75rem; /* push a bit below title underline */
+        padding-top: .6rem;  /* extra breathing room */
+        margin-bottom: 1.25rem; /* slightly larger gap below avatar */
     }
+}
+
+/* Extra micro‑adjust for very small width so avatar not too close to heading */
+@media (max-width: 360px) {
+    .about-avatar {
+        margin-top: 1rem;
+        margin-bottom: 1.5rem;
+    }
+    .avatar-container { width: 180px; height: 180px; }
+}
+@media (max-width: 320px) {
+    .about-avatar {
+        margin-top: 1.1rem;
+        margin-bottom: 1.7rem;
+    }
+    .avatar-container { width: 170px; height: 170px; }
 }
 
 /* container untuk foto profil */
@@ -3836,7 +3827,6 @@ section {
     
     .laptop {
         transform: scale(0.25);
-        max-width: 200px;
         margin: 0 auto;
         display: flex;
         flex-direction: column;
@@ -4074,17 +4064,6 @@ section {
     
     .social-name {
         font-size: 0.9rem;
-    }
-}
-
-@media (min-width: 1200px) {
-    .projects-grid {
-        grid-template-columns: repeat(3, 1fr);
-        max-width: 1400px;
-    }
-    
-    .project-card {
-        min-height: 550px;
     }
 }
 
@@ -4710,6 +4689,7 @@ section {
     
     .projects-description {
         font-size: 0.9rem;
+        margin-bottom: 1rem;
     }
     
     .project-header {
@@ -4787,7 +4767,6 @@ section {
     }
     
     .skills-grid {
-        grid-template-columns: 1fr;
         gap: 1rem;
     }
     
@@ -6201,6 +6180,35 @@ section {
 }
 
 @media (max-width: 480px) {
+    .projects {
+        padding: 3rem 0;
+    }
+    
+    .projects-content {
+        padding: 0 1rem;
+        max-width: 100%;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+        text-align: center;
+    }
+    
+    .projects-subtitle {
+        font-size: 1rem;
+        margin-bottom: 0.8rem;
+        text-align: center;
+    }
+    
+    .projects-description {
+        font-size: 0.95rem;
+        margin-bottom: 2rem;
+        text-align: center;
+        padding: 0 0.5rem;
+        line-height: 1.6;
+    }
+    
     .carousel-simple {
         width: 100%;
         padding: 0.5rem;
@@ -6215,10 +6223,11 @@ section {
     }
     
     .carousel-viewport {
-        height: 400px;
+        height: 450px;
         overflow: hidden;
         position: relative;
         border-radius: 12px;
+        margin-bottom: 1rem;
     }
     
     .carousel-slide {
@@ -6226,7 +6235,7 @@ section {
         width: 100%;
         height: 100%;
         opacity: 0;
-        transform: scale(0.8);
+        transform: scale(0.85);
         transition: all 0.5s ease-in-out;
         pointer-events: none;
         display: flex;
@@ -6245,34 +6254,191 @@ section {
     }
     
     .project-card-simple {
-        padding: 0.8rem 0.6rem;
-        min-height: 250px;
+        padding: 1rem 0.8rem;
+        min-height: 350px;
+        max-width: 95%;
+        width: 95%;
+        margin: 0 auto;
+        border-radius: 12px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
     }
     
     .card-image-simple {
-        height: 10px;
-        margin-bottom: 0.3rem;
+        height: 120px;
+        margin-bottom: 1rem;
+        object-fit: cover;
+        border-radius: 8px;
     }
     
     .project-title-simple {
-        font-size: 0.95rem;
-        margin-bottom: 0.6rem;
+        font-size: 1.1rem;
+        margin-bottom: 0.8rem;
         padding: 0 0.3rem;
+        text-align: center;
+        line-height: 1.3;
     }
     
     .project-description-simple {
-        font-size: 0.8rem;
+        font-size: 0.9rem;
+        margin-bottom: 1rem;
+        line-height: 1.5;
+        padding: 0 0.3rem;
+        text-align: center;
+        flex: 1;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+    
+    .project-tech-simple {
+        gap: 0.4rem;
+        margin-bottom: 1rem;
+        padding: 0 0.3rem;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    
+    .tech-tag-simple {
+        padding: 0.3rem 0.6rem;
+        font-size: 0.75rem;
+        border-radius: 6px;
+        white-space: nowrap;
+    }
+    
+    .project-links-simple {
+        gap: 0.8rem;
+        padding: 0 0.3rem;
+        justify-content: center;
+        flex-direction: row;
+    }
+    
+    
+    .carousel-nav-simple {
+        margin-top: 1.5rem;
+        margin-bottom: 2rem;
+        flex-direction: row;
+        gap: 1.5rem;
+        justify-content: center;
+        align-items: center;
+        padding: 0 1rem;
+    }
+    
+    .nav-indicators-simple {
+        order: 0;
+        display: flex;
+        gap: 0.8rem;
+        align-items: center;
+    }
+    
+    .nav-btn-simple {
+        width: 50px;
+        height: 50px;
+        font-size: 1.2rem;
+        border-radius: 50%;
+        background: rgba(59, 130, 246, 0.2);
+        border: 1px solid rgba(59, 130, 246, 0.4);
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+    
+    .nav-btn-simple:hover:not(:disabled) {
+        background: rgba(59, 130, 246, 0.4);
+        transform: scale(1.05);
+    }
+    
+    .nav-btn-simple:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+    }
+    
+    .indicator-simple {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.3);
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+    
+    .indicator-simple.active {
+        background: rgba(59, 130, 246, 0.8);
+        transform: scale(1.2);
+    }
+}
+
+/* Extra Small Mobile - 320px and below */
+@media (max-width: 320px) {
+    .projects {
+        padding: 2.5rem 0;
+    }
+    
+    .projects-content {
+        padding: 0 0.5rem;
+    }
+    
+    .section-title {
+        font-size: 1.8rem;
         margin-bottom: 0.8rem;
-        line-height: 1.4;
+    }
+    
+    .projects-subtitle {
+        font-size: 0.9rem;
+        margin-bottom: 0.6rem;
+    }
+    
+    .projects-description {
+        font-size: 0.85rem;
+        margin-bottom: 1.5rem;
+        padding: 0 0.3rem;
+    }
+    
+    .carousel-simple {
+        padding: 0.3rem;
+    }
+    
+    .carousel-viewport {
+        height: 400px;
+        border-radius: 10px;
+    }
+    
+    .project-card-simple {
+        padding: 0.8rem 0.6rem;
+        min-height: 300px;
+        max-width: 98%;
+        width: 98%;
+    }
+    
+    .card-image-simple {
+        height: 100px;
+        margin-bottom: 0.8rem;
+    }
+    
+    .project-title-simple {
+        font-size: 1rem;
+        margin-bottom: 0.6rem;
+        padding: 0 0.2rem;
+    }
+    
+    .project-description-simple {
+        font-size: 0.85rem;
+        margin-bottom: 0.8rem;
+        padding: 0 0.2rem;
         -webkit-line-clamp: 2;
         line-clamp: 2;
-        padding: 0 0.3rem;
     }
     
     .project-tech-simple {
         gap: 0.3rem;
         margin-bottom: 0.8rem;
-        padding: 0 0.3rem;
+        padding: 0 0.2rem;
     }
     
     .tech-tag-simple {
@@ -6282,29 +6448,29 @@ section {
     
     .project-links-simple {
         gap: 0.6rem;
-        padding: 0 0.3rem;
+        padding: 0 0.2rem;
     }
-    
     
     .carousel-nav-simple {
-        margin-top: 2.5rem;
-        flex-direction: column;
+        margin-top: 1rem;
+        margin-bottom: 1.5rem;
         gap: 1rem;
-    }
-    
-    .nav-indicators-simple {
-        order: -1;
+        padding: 0 0.5rem;
     }
     
     .nav-btn-simple {
-        width: 50px;
-        height: 50px;
-        font-size: 1.25rem;
+        width: 45px;
+        height: 45px;
+        font-size: 1.1rem;
     }
     
     .indicator-simple {
-        width: 14px;
-        height: 14px;
+        width: 10px;
+        height: 10px;
+    }
+    
+    .indicator-simple.active {
+        transform: scale(1.1);
     }
 }
 
