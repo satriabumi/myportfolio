@@ -792,6 +792,3 @@ window.projectData = [
         demo: "https://travlio-website.vercel.app"
     }
 ];
-// Carousel initialization is now handled in carousel.js
-
- 
